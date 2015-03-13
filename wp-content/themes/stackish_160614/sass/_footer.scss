@@ -1,0 +1,32 @@
+.navbar-bottom {
+  margin-top: -$navbar-height;
+
+  .navbar-nav {
+
+    &.navbar-left {
+      margin-left: -27px;
+    }
+
+    > .current-menu-item > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-inverse-link-active-color;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+html, body {
+  height: 100%;
+}
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto 0; /* the bottom margin is the negative value of the footer's height */
+}
+.push {
+ height: $navbar-height; /* .push must be the same height as .footer */
+}

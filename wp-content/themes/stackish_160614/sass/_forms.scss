@@ -1,0 +1,97 @@
+
+// .form-title {
+//   margin-bottom: 1em;
+// }
+
+// input[type="text"],
+// input[type="password"],
+// input[type="email"],
+// textarea {
+//   // @include border-radius($radius*.2);
+//   background: lighten($stackish_gray,70);
+//   border: 1px solid transparent; 
+//   font-family: $sans-family;
+//   font-size: $zeta;
+//   font-weight: $book;
+//   line-height: 1em;
+//   padding: .7em .5em .5em;
+//   width: 100%;
+
+//   &:focus {
+//     // @include box-shadow(0); 
+//     background: $stackish_yellow;
+//     outline: 0;
+//   }
+// }
+
+// .form-list,
+// .gform_fields {
+  
+//   li {
+//     @include clearfix();
+//     margin-bottom: $padding;
+//   }
+// }
+
+
+// label {
+//   width: 100%;
+// }
+
+// textarea {
+//   height: 6em;
+// }
+
+
+// button,
+// input[type=submit] {
+//   // @include box-shadow(rgba(#000,.7) 0 1px 0px 0px);
+//   background: lighten(#000,23);
+//   @include background-image(
+//     linear-gradient(lighten(#000,24), lighten(#000,20))
+//   );
+//   border: 0;
+//   color: #bbb;
+//   font-family: $sans-family;
+//   font-size: $epsilon;
+//   font-weight: $book;
+//   letter-spacing: .025em;
+//   line-height: 1em;
+//   margin: 0;
+//   padding: $padding*.75;
+//   position: relative;
+//   text-align: left;
+
+//   .button-icon {
+//     @include text-shadow(rgba(#000,1) 0 1px 3px);
+//     position: absolute;
+//     right: $padding;
+//   }
+
+//   &:hover,
+//   &.active {
+//     cursor: pointer;
+//     color: #FFF;
+//   }
+
+//   &.active {
+//     color: #FFF;
+
+//     .button-icon {
+//       // color: $stackish-yellow;
+//     }
+//   }
+
+//   &:active,
+//   &:focus {
+//     outline: 0;
+//   }
+
+//   &.inactive {
+//     pointer-events: none;
+
+//     &:hover {
+//       cursor: auto;
+//     }
+//   }
+// }

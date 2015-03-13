@@ -1,0 +1,95 @@
+/* Color */
+$primary-color: #0D72FF;
+$secondary-color: #8510FF;
+
+$stackish_yellow: #ffc200;
+$stackish_orange: #ff9100;
+$stackish_gray:   lighten(#000,20);
+
+$radius: 20px;
+
+$margin-bottom: .5em;
+$margin: .5em;
+$padding: 1em;
+
+$contrast-factor: 5;
+
+.active-interface {
+  @include opacity(1);
+  @include transition(opacity .3s ease-in-out);
+}
+
+.inactive-interface {
+  @include opacity(0);
+  @include transition(opacity 1s);
+  pointer-events: none;
+}
+
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* normalize viewport */
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+/* fixed jacked up image resizing in IE7 */
+img { -ms-interpolation-mode: bicubic; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* fix the overflow bug in IE9 */
+svg:not(:root) { overflow: hidden; }
+
+/* fix images in print */
+@media print { img { max-width: 100% !important; } }
+
+.content-section {
+  @include clearfix();
+  padding: .75em 10%;
+  position: relative;
+}
+
+.stackish-shadow {
+  @include box-shadow(rgba($gray-dark,.1) 0 0 1px 0);
+  position: relative;
+
+  &:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    width: 50%;
+    top: 80%;
+    max-width:300px;
+    background: #777;
+    @include box-shadow(rgba($gray-dark,.2) 0 15px 10px 0);
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+  }
+
+  &:after {
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+  }
+}
+
+.btn-minimal {
+  @include button-variant($btn-default-color, #ECECEC, #ECECEC);
+}

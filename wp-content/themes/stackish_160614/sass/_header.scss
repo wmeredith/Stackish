@@ -1,0 +1,62 @@
+.navbar {
+  background: url(images/build/type-header.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  &.navbar-top {
+    margin-bottom: $padding-base-vertical * 2;
+  }
+
+  li.onboarding-action a {
+    display: inline-block;
+  }
+
+  .page-logo {
+    text-decoration: none;
+    float: left;
+    img {
+      width: 125px;
+    }
+  }
+
+  .dropdown-form {
+    min-width: 300px;
+    padding: 3px 30px 3px 15px;
+  }
+
+  .navbar-nav {
+    > .current-menu-item > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-inverse-link-active-color;
+        background-color: $navbar-inverse-link-active-bg;
+      }
+    }
+  }
+
+  .navbar-form input {
+    @include transition-property(width);
+    @include transition-duration(.2s);
+    @include transition-timing-function(ease-out);
+    @include input-placeholder {
+      color: $navbar-inverse-link-color;
+    }
+    background: $gray-dark;
+    border-color: $gray-darker;
+    width: 100px;
+
+    &:focus {
+      @include transition-property(width);
+      @include transition-duration(.2s);
+      @include transition-timing-function(ease-in);
+      @include input-placeholder {
+        color: #444;
+      }
+      background: $stackish-yellow;
+      width: 250px;
+    }
+  }
+}
