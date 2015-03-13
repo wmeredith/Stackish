@@ -10,8 +10,6 @@ module.exports = function(grunt) {
             //lib scripts where order matters
             'js/lib/rangy-core.js',
             'js/lib/rangy-cssclassapplier.js',
-            'js/lib/undo.js',
-            'js/lib/medium.js',
 
             //lib else
             'js/lib/*.js',

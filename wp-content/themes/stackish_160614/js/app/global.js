@@ -1,15 +1,13 @@
 jQuery(document).ready(function($) {
-	rangy.init(); // https://code.google.com/p/rangy/wiki/CSSClassApplierModule
-	var mask = '.modal-mask';
-	var openInterface = '.open';
-	var dHeight = $(document).height();
-	$(mask).css("height", (dHeight));
-
 	// new Squire([document.getElementById('stack-frame').contentWindow.document.getElementById('stack-body')]);
 
 	//
 	// Hide open interfaces and the modal mask when the mask is clicked.
 	//
+	var mask = '.modal-mask';
+	var openInterface = '.open';
+	var dHeight = $(document).height();
+	$(mask).css("height", (dHeight));
 	$(mask).on('click', function() {
 		$(openInterface).removeClass('open');
 		return false;
@@ -32,8 +30,8 @@ jQuery(document).ready(function($) {
 		html2canvas([document.getElementById('stack-frame').contentWindow.document.getElementById('stack-body')], {   
 			onrendered: function(canvas) {
 				var img = canvas.toDataURL()
-				$.post("/save-stack-preview.php", {data: img}, function (file) {
-				window.location.href =  "/browse-font-stacks/"});   
+				$.post('/save-stack-preview.php', {data: img}, function (file) {
+				window.location.href =  '/browse-font-stacks/'});   
 			}
 		});         
 	});
@@ -48,111 +46,6 @@ jQuery(document).ready(function($) {
 	 });
 	 return result;
 	};
-
-	// //
-	// // Stack Builder
-	// //
-	// // Selecting and deploying a typeface
-	//  $('#font-list').on('click', 'button', function() {
-	//   // Get typeface
-	//   var typefaceSelection = $(this).data("stck-typeface");
-	 
-	//   // Add font rule to css for the selected font
-	//   var typefaceClass = typefaceSelection.toLowerCase().replace(/ /g,"-");
-
-	//   // Add typeface to preview button
-	//   $('#typeface-preview-button').html(typefaceSelection + '<span class="icon-sort">').css('font-family', typefaceSelection);
-
-	//   // Apply temp font class to selected span for jquery to target
-	//   var tempCssClass = "rangyTemp_" + typefaceClass;
-	//    var classApplier = rangy.createCssClassApplier(tempCssClass, true);
-	//    classApplier.applyToSelection();
-
-	//    // Add the CSS to the target and then remove the temp class
-	//    $('.' + tempCssClass).css('font-family', typefaceSelection).removeClass(tempCssClass);
-
-	//    // Close font picker list
-	//   $(openInterface).removeClass('open');
-
-	//   return false;
-	//  });
-
-	//  //
-	//  // Select and deploy font-size
-	//  //
-	//  $('#font-size-slider').on('slide',function() {
-	//   // Get typeface
-	//   var fontSizeSelection = $(this).val();
-	 
-	//   // Apply temp font class to selected span for jquery to target
-	//   var tempCssClass = "rangyTemp_" + Math.round(fontSizeSelection), // no decimals in class names
-	//       classApplier = rangy.createCssClassApplier(tempCssClass, true);
-	//    classApplier.applyToSelection();
-
-	//    // Add the CSS to the target and then remove the temp class
-	//    $('.' + tempCssClass).css('font-size', Math.round(fontSizeSelection) + 'px').removeClass(tempCssClass);
-
-	//   return false;
-	//  });
-
-	//  //
-	//  // Select and deploy font-weight
-	//  //
-	//  $('#font-weight-slider').on('slide',function() {
-	//   // Get font-weight
-	//   var fontWeightSelection = $(this).val();
-
-	//   // Strip off the trailing .00 decimals
-	//   var fontWeightRounded = fontWeightSelection.toString().replace('.00', '');
-	 
-	//   // Apply temp font class to selected span for jquery to target
-	//   var tempCssClass = "rangyTemp_" + fontWeightRounded;
-	//    var classApplier = rangy.createCssClassApplier(tempCssClass, true);
-	//    classApplier.applyToSelection();
-
-	//    // Add the CSS to the target and then remove the temp class
-	//    $('.' + tempCssClass).css('font-weight', fontWeightRounded).removeClass(tempCssClass);
-
-	//   return false;
-	//  });
-
-	//  //
-	//  // Select and deploy line-height
-	//  //
-	//  $('#line-height-slider').on('slide',function() {
-	//   // Get line-height
-	//   var lineHeightSelection = $(this).val();
-
-	//   // Apply temp font class to selected span for jquery to target
-	//   var tempCssClass = "rangyTemp_" + Math.round(lineHeightSelection), // no decimals in class names
-	//       classApplier = rangy.createCssClassApplier(tempCssClass, true);
-	//    classApplier.applyToSelection();
-
-	//    // Add the CSS to the target and then remove the temp class
-	//    $('.' + tempCssClass).css('line-height', lineHeightSelection).removeClass(tempCssClass);
-
-	//   return false;
-	//  });
-
-	//  //
-	//  // Select and deploy measure
-	//  //
-	//  $('#measure-slider').on('slide',function() {
-	//   // Get measure input
-	//   var measureSelection = $(this).val(),
-	//       stackWidth = $('#stack-content-for-capture').innerWidth(),
-	//       measurePxConvert = (measureSelection * .01) * stackWidth,
-	//       marginCalc = parseInt((stackWidth - measurePxConvert) / 2);
-
-	//    // Adjust left and right margins
-	//    $('#stack-content-for-capture').css({
-	//     'padding': '',
-	//     'padding-left': marginCalc + 'px',
-	//     'padding-right': marginCalc + 'px',
-	//    });
-
-	//   return false;
-	//  });
   
   //
   // Show font list when the typeface button is clicked.
@@ -165,48 +58,6 @@ jQuery(document).ready(function($) {
 		$('#font-list').scrollTop(($('#font-list li.active').position().top) - 175);// this works, just need to get the active class applied accurately
 		return false;
   });
-
-	//  //
-	//  // Update control panel to reflect selected text properties
-	//  // 
-	//  $('#editable-stack').mouseup(function() {
-	//   var selection = rangy.getSelection(),
-	//       range = selection.getRangeAt(0),
-	//       parentElement = range.commonAncestorContainer;
-	//    if (parentElement.nodeType == 3) {
-	//        parentElement = parentElement.parentNode;
-	//    };
-
-	//    // Reset (aka remove) any current .active classes from all .sub-control buttons
-	//    $('.subcontrol-button').removeClass('active');
-
-	//    // Update Typeface preview
-	//    var parentElementTypeface = $(parentElement).css('font-family'),
-	//       parentElementTypefaceProper = parentElementTypeface.replace(/,|'|"|serif|sans-serif|serif/g,'');
-	//    $('#typeface-preview-button').html(parentElementTypefaceProper + '<span class="icon-sort">').css('font-family', parentElementTypeface);
-
-	//    // Mark Typeface as active in #font-list
-	//    $('#font-list li').removeClass('active');
-	//    $('li.' + parentElementTypefaceProper).addClass('active');
-
-	//    // Font-Weight
-	//    var parentElementFontWeight = $(parentElement).css('font-weight');
-	//    var translatedFontWeight = parentElementFontWeight.replace('bold','700');// Trade weight names for numbers
-	//    $('#font-weight-input, #font-weight-slider').val(translatedFontWeight);
-
-	//    // Font-Size
-	//    var parentElementFontSize = $(parentElement).css('font-size').replace('px','');
-	//    $('#font-size-input, #font-size-slider').val(parentElementFontSize);
-
-	//    // Line-Height
-	//    var parentElementLineHeight = $(parentElement).css('line-height').replace('px',''),
-	//       computedElementLineHeight = parseFloat(parentElementLineHeight).toFixed(2) / parentElementFontSize;
-	//    $('#line-height-input, #line-height-slider').val(computedElementLineHeight);
-
-	//    // Alignment
-	//    var parentElementTextAlign = $(parentElement).css('text-align');
-	//    $('.subcontrol-button.align-' + parentElementTextAlign).addClass('active');
-	//  });
   
   //
   // Check against font name "database" (haha, see: var fonts =[...]) and populate the font picker
