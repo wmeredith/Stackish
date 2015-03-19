@@ -1,4 +1,10 @@
 <?php
+//allow redirection, even if my theme starts to send output to the browser
+add_action('init', 'do_output_buffer');
+function do_output_buffer() {
+        ob_start();
+}
+
 //
 // Register and then enqueue scripts, stylesheets and other files on non-admin site pages. 
 //
@@ -432,5 +438,96 @@ function page_navi($before = '', $after = '') {
     echo '<li class="next"><a href="'.get_pagenum_link($max_page).'" title="Last">'.$last_page_text.'</a></li>';
   }
   echo '</ul></div>'.$after."";
+};
+
+// Save a new stack submitted from the stack builder
+function stck_build_stack() {
+ 
+  if ( empty($_POST) || !wp_verify_nonce($_POST['stack_builder_nonce'],'create_stack') ) {
+    print 'Input from your time &amp; space denied.'; exit;
+  } else {
+    
+    // Do some minor form validation to make sure there is content
+    if (isset ($_POST['stackName'])) {
+      $title =  $_POST['stackName'];
+    } else {
+      echo 'Please enter a Stack name'; exit;
+    } if (isset ($_POST['stackDescription'])) {
+      $description = $_POST['stackDescription'];
+    } if (isset($_POST['stackTags'])){
+      $tags = $_POST['stackTags'];
+    } else {
+      $tags = "";
+    }
+
+    // Create new post
+    $post = array(
+      'post_title'    => wp_strip_all_tags( $title ),
+      'post_content'  => $description,
+      'tags_input'    => $tags,
+      'post_status'   => 'publish', // Choose: publish, preview, future, etc.
+      'post_type'     => 'Stack'    // Use a custom post type if you want to
+    );
+    wp_insert_post($post);
+    // $post_id = wp_insert_post($post); // Grab the newly created post ID for later use
+
+    // Save temporary stack preview image
+    $filteredImageData = substr($_POST['img_val'], strpos($_POST['img_val'], ",")+1); // Get the base-64 string from data
+    $decodedImageData=base64_decode($filteredImageData); // Decode the string
+    $tempFileName = md5(uniqid()) . '.png';
+    $tempFileLoc = ABSPATH.'/wp-content/temp-stack-previews/'.$tempFileName;
+    file_put_contents( $tempFileLoc, $decodedImageData);
+
+    // Add stack preview as Featured Image to Post
+    $image_url  = $tempFileLoc; // Define the image URL here
+    $upload_dir = wp_upload_dir(); // Set upload folder
+    $image_data = file_get_contents($image_url); // Get image data
+    $filename   = basename($image_url); // Create image file name
+
+    // Check folder permission and define file location
+    if( wp_mkdir_p( $upload_dir['path'] ) ) {
+        $file = $upload_dir['path'] . '/' . $filename;
+    } else {
+        $file = $upload_dir['basedir'] . '/' . $filename;
+    }
+
+    // Create the image  file on the server
+    file_put_contents( $file, $image_data );
+
+    // Check image file type
+    $wp_filetype = wp_check_filetype( $filename, null );
+
+    // Set attachment data
+    $attachment = array(
+      'post_mime_type' => $wp_filetype['type'],
+      'post_title'     => sanitize_file_name( $filename ),
+      'post_content'   => '',
+      'post_status'    => 'inherit'
+    );
+
+    // Create the attachment
+    $attach_id = wp_insert_attachment( $attachment, $file, $post_id );
+
+    // These files need to be included as dependencies when on the front end.
+    require_once( ABSPATH . 'wp-admin/includes/image.php' );
+    require_once( ABSPATH . 'wp-admin/includes/file.php' );
+    require_once( ABSPATH . 'wp-admin/includes/media.php' );
+
+    // Define attachment metadata
+    $attach_data = wp_generate_attachment_metadata( $attach_id, $file );
+
+    // Assign metadata to attachment
+    wp_update_attachment_metadata( $attach_id, $attach_data );
+
+    // And finally assign featured image to post
+    set_post_thumbnail( $post_id, $attach_id );
+
+    // Delete stack preview temp file
+    unlink( $tempFileLoc );
+
+    // Redirect to new post
+    wp_redirect(get_permalink($post_id));
+    die;
+  }
 };
 ?>

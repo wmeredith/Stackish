@@ -97,8 +97,8 @@ body {
     @extend .stackish-shadow;
   }
 
-  .stack-thumb {
-
+  .stack-thumb img {
+    @include border-radius($border-radius-base);
   }
 
   .stack-thumb-meta {
@@ -113,14 +113,13 @@ body {
         margin: 0;
         padding: 0;
 
-        &.stack-thumb-author {
+        &.stack-thumb-secondary {
+          color: $gray-light;
           font-style: italic;
         }
 
-        &.stack-thumb-title {
-        }
-
-        &.stack-thumb-date {
+        &.stack-thumb-primary {
+          font-weight: bold;
         }
       }
     }
@@ -131,23 +130,12 @@ body {
   }
 }
 
-
 //
 // Registration pages (create user, login, password recovery)
 //
 .sign-up-column,
 .login-column {
   width: 350px;
-}
-
-input.create-account,
-input.login-button,
-input.reset-submit {
-  @include border-bottom-right-radius($radius*.5);
-}
-
-input.login-button {
-  @include border-bottom-right-radius($radius*.5);
 }
 
 //

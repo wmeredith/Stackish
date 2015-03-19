@@ -58,41 +58,49 @@ get_header(); ?>
       <div class="row" id="test-print-stack">
         <div class="col-md-9 col-lg-7">
           <iframe id="stack-frame" class="stack-content-for-capture" onload="top.editor=this.contentWindow.editor" src="<?php echo get_template_directory_uri(); ?>/raw_stack.html" scrolling="no" width="100%"></iframe>
-          <form>
+          <form id="stackBuilderForm" method="post" action="">
             <div class="row">
               <div class="col-md-9">
                 <div class="form-group">
-                  <label for="buildStackName">Title*</label>
-                  <input type="text" id ="buildStackName" name="" placeholder="Give your creation a name." class="form-control"/>
+                  <label for="stackName">Stack Name*</label>
+                  <input type="text" id="stackName" name="stackName" placeholder="" class="form-control"/>
                 </div>
                 <div class="form-group">
-                  <label for="buildStackTags" >Tags (Comma separated. Max of 12.)</label>
-                  <input type="text" id="buildStackTags" name="" autocomplete="off" placeholder="Keywords will help others find your work." class="form-control"/>
+                  <label for="stackTags" >Tags (Comma separated. Max of 11.)</label>
+                  <input type="text" id="stackTags" name="stackTags" autocomplete="off" placeholder="" class="form-control"/>
                 </div>
                 <div class="form-group">
-                  <label for="buildStackDescription" >Description</label>
-                  <textarea id="buildStackDescription" placeholder="Brevity is a virtue." class="form-control"></textarea>
+                  <label for="stackDescription" >Description</label>
+                  <textarea id="stackDescription" name="stackDescription" placeholder="Brevity is a virtue." class="form-control"></textarea>
                 </div>
                 <!-- <li>
                   <label><input type="checkbox" name="checkbox" value="make_private"> Make Private</label> (<a href="/pro" title="">This is a Pro Account feature.</a>)
                 </li> -->
-                <button id="stackDraft" class="btn btn-minimal" onclick="submit">
+                <button type="button" id="stackDraft" class="btn btn-minimal" onclick="submit">
                   Save Draft
                 </button>
-                <button id="stackPreview" class="btn btn-minimal">
+                <button type="button" id="stackPreview" class="btn btn-minimal">
                   Preview
                 </button>
-                <button id="stackCreate" class="btn btn-primary pull-right">
+                <button type="button" id="stackCreate" class="btn btn-primary pull-right">
                   Create Stack
                 </button>        
-                <input type="hidden" name="action" value="post" />
+                <input type="hidden" name="post-type" id="post-type" value="custom_posts" />
+                <input type="hidden" name="img_val" id="img_val" value="" />
+                <input type="hidden" name="action" value="custom_posts" />
+                <input type="hidden" name="empty-description" id="empty-description" value="1"/>
+                <?php wp_nonce_field( 'create_stack', 'stack_builder_nonce' ); ?>
                 <br/><br/>
                 <em>*Field is required.</em>
                 <br/><br/>
-                <input type="hidden" name="empty-description" id="empty-description" value="1"/>
               </div>
             </div>
           </form>
+          <?php 
+            if($_POST){ 
+              stck_build_stack();
+            } 
+          ?>
         </div>
         <div class="col-md-3  col-lg-5">
           <div class="stack-control">               

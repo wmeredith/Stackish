@@ -23,19 +23,9 @@
 	?>
 	<meta name="description" content="<?php echo $meta_description; ?>" />
 	<meta name="author" content="Wade Meredith" />
-	<script type="text/javascript" charset="utf-8">
-    var editor;
-    document.addEventListener( 'click', function ( e ) {
-      var id = e.target.id,
-          value;
-      if ( id && editor && editor[ id ] ) {
-        if ( e.target.className === 'prompt' ) {
-          value = prompt( 'Value:' );
-        }
-        editor[ id ]( value );
-      }
-    }, false );
-    </script>
+	<script type="text/javascript">
+		var templateDir = "<?php bloginfo('template_directory') ?>";
+	</script>
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

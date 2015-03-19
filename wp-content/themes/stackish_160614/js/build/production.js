@@ -10250,15 +10250,31 @@ jQuery(document).ready(function($) {
 	//
 	// Screenshot capture of a stack http://jamshidhashimi.com/2013/03/24/get-snapshot-of-a-page-section/
 	//
-	$('#stackPreview').on('click', function printDiv(div) {
+	// $('#stackCreate').on('click', function() {
+	// 	html2canvas([document.getElementById('stack-frame').contentWindow.document.getElementById('stack-body')], {   
+	// 		onrendered: function(canvas) {
+	// 			var img = canvas.toDataURL()
+	// 			$.post(templateDir+'/save-stack-preview.php', {data: img}, function (file) {});
+	// 			letterRendering = true;  
+	// 		}
+	// 	});         
+	// });
+
+	$('#stackCreate').on('click', function() {
 		html2canvas([document.getElementById('stack-frame').contentWindow.document.getElementById('stack-body')], {   
 			onrendered: function(canvas) {
-				var img = canvas.toDataURL()
-				$.post('/save-stack-preview.php', {data: img}, function (file) {
-				window.location.href =  '/browse-font-stacks/'});   
+				//Set hidden field's value to image data (base-64 string)
+        $('#img_val').val(canvas.toDataURL("image/png"));
+        //Submit the form manually
+        document.getElementById("stackBuilderForm").submit();
+				letterRendering = true;  
 			}
 		});         
 	});
+
+	// $('#stackPreview').on('click', function printDiv(div) {
+	// 	alert(templateDir+'/save-stack-preview.php');        
+	// });
 
 	//
 	// Dedupe an array
