@@ -1,8 +1,15 @@
 jQuery(document).ready(function($) {
-	// new Squire([document.getElementById('stack-frame').contentWindow.document.getElementById('stack-body')]);
+	// Rangy
+  // var iframe = document.getElementById("stack-frame");
+  // var sel = rangy.getSelection(iframe);
+  $('#testButton').onClick(function () {
+		alert('foo');
+  });
+
+
 
 	//
-	// Hide open interfaces and the modal mask when the mask is clicked.
+	// Hide open interfaces and the modal mask when the mask is clicked or ESC is pressed.
 	//
 	var mask = '.modal-mask';
 	var openInterface = '.open';
@@ -12,30 +19,16 @@ jQuery(document).ready(function($) {
 		$(openInterface).removeClass('open');
 		return false;
 	});
-
-	//
-	// Hide open interfaces if escape key is pressed
-	//
 	$(document).keyup(function(e) {
 	  if (e.keyCode == 27) { // Escape key
 		$(openInterface).removeClass('open');
 			return false;
 	  }
-	});
+	});	
 
 	//
-	// Screenshot capture of a stack http://jamshidhashimi.com/2013/03/24/get-snapshot-of-a-page-section/
+	//	Grab preview temp file when a stack is created
 	//
-	// $('#stackCreate').on('click', function() {
-	// 	html2canvas([document.getElementById('stack-frame').contentWindow.document.getElementById('stack-body')], {   
-	// 		onrendered: function(canvas) {
-	// 			var img = canvas.toDataURL()
-	// 			$.post(templateDir+'/save-stack-preview.php', {data: img}, function (file) {});
-	// 			letterRendering = true;  
-	// 		}
-	// 	});         
-	// });
-
 	$('#stackCreate').on('click', function() {
 		html2canvas([document.getElementById('stack-frame').contentWindow.document.getElementById('stack-body')], {   
 			onrendered: function(canvas) {
@@ -47,26 +40,11 @@ jQuery(document).ready(function($) {
 			}
 		});         
 	});
-
-	// $('#stackPreview').on('click', function printDiv(div) {
-	// 	alert(templateDir+'/save-stack-preview.php');        
-	// });
-
-	//
-	// Dedupe an array
-	//
-	function unique(list) {
-	 var result = [];
-	 $.each(list, function(i, e) {
-		  if ($.inArray(e, result) == -1) result.push(e);
-	 });
-	 return result;
-	};
   
   //
   // Show font list when the typeface button is clicked.
   //
-  $('[data-stck-switch="font-list"]').on('click', function() {
+  $('#typeface-preview-button').on('click', function() {
 		$('#font-list').addClass('open');
 		$(mask).addClass('open');
 	 
@@ -1565,6 +1543,14 @@ jQuery(document).ready(function($) {
 			"Zeyada"
 		];
 
+		// Function to dedupe an array
+		function unique(list) {
+			var result = [];
+			$.each(list, function(i, e) {
+				if ($.inArray(e, result) == -1) result.push(e);
+			});
+			return result;
+		};
 		// Dedupe matched fonts - http://stackoverflow.com/a/15868720/3361119
 		var dedupedFonts = fonts.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]);
 		var sortedFonts = dedupedFonts.sort();
@@ -1576,7 +1562,7 @@ jQuery(document).ready(function($) {
 			var result = d.detect(sortedFonts[i]);
 			var num = i+1;
 			if(result == true) {
-				$('#font-list').append(
+				$('.font-picker').append(
 					'<li class="'+ sortedFonts[i].toLowerCase().replace(/ /g,"-") +'">'+
 					  '<button class="typeface-selection" data-stck-typeface="'+sortedFonts[i]+'" style="font-family: '+sortedFonts[i]+'">'+
 							'<span class="num">'+num+'</span>'+
@@ -1587,22 +1573,17 @@ jQuery(document).ready(function($) {
 				);
 			}
 		}
+
+		var listSearchOptions = {
+	    valueNames: [ 'typeface' ]
+		};
+
+		var fontList = new List('font-list', listSearchOptions);
 	};
-
-  $('[data-stck-button]').on('click', function() {
-		$(this).next('[data-stck-content]').slideToggle(100);
-		$(this).toggleClass('open');
-		return false;
-  });
-
-  $('[data-stck=closeParent]').on('click', function() {
-		$(this).parent().removeClass('open');
-  });
 
   //
   // Sliders for the Metrics panel on font-stack-builder.php
   //
-  // Size
   $('#font-size-slider').noUiSlider({
 		start: 16,
 		connect: "lower",
@@ -1621,7 +1602,6 @@ jQuery(document).ready(function($) {
 		  ]
 		}
   });
-  // Weight
   $('#font-weight-slider').noUiSlider({
 		start: 400,
 		connect: "lower",
@@ -1641,7 +1621,6 @@ jQuery(document).ready(function($) {
 		  ]
 		}
   });
-  // Kern
   $('#font-kerning-slider').noUiSlider({
 		start: 0,
 		connect: "lower",
@@ -1660,7 +1639,6 @@ jQuery(document).ready(function($) {
 		  ]
 		}
   });
-  // Line Height
   $('#line-height-slider').noUiSlider({
 		start: 1.33,
 		connect: "lower",
@@ -1679,7 +1657,6 @@ jQuery(document).ready(function($) {
 		  ]
 		}
   });
-  // Measure
   $('#measure-slider').noUiSlider({
 		start: 80,
 		connect: "lower",
@@ -1698,8 +1675,6 @@ jQuery(document).ready(function($) {
 		  ]
 		}
   });
-
-  // Top Padding
   $('#padding-top-slider').noUiSlider({
 		start: 20,
 		connect: "lower",
@@ -1718,7 +1693,6 @@ jQuery(document).ready(function($) {
 		  ]
 		}
   });
-  // Right Padding
   $('#padding-right-slider').noUiSlider({
 		start: 20,
 		connect: "lower",
@@ -1737,7 +1711,6 @@ jQuery(document).ready(function($) {
 		  ]
 		}
   });
-  // Bottom Padding
   $('#padding-bottom-slider').noUiSlider({
 		start: 20,
 		connect: "lower",
@@ -1756,7 +1729,6 @@ jQuery(document).ready(function($) {
 		  ]
 		}
   });
-  // Left Padding
   $('#padding-left-slider').noUiSlider({
 		start: 20,
 		connect: "lower",
@@ -1775,5 +1747,8 @@ jQuery(document).ready(function($) {
 		  ]
 		}
   });
+
+  
+
 
 });

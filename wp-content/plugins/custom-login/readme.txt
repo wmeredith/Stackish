@@ -3,7 +3,7 @@ Contributors: austyfrosty, frostymedia
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7431290
 Tags: admin, branding, customization, custom login, login, logo, error, login error, custom login pro
 Requires at least: 4.0
-Tested up to: 4.1
+Tested up to: 4.3.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -17,12 +17,12 @@ Custom Login 2.0 was 140% faster than version 1.0, and version 3.0 is now even b
 For more information visit the official [Custom Login](https://frosty.media/plugins/custom-login/) page.
 
 > <strong>Support</strong><br>
-> [Austin](https://austin.passy.co) and the [Frosty Media](https://frosty.media/) team will always try our best to support the Custom Login plugin on the WordPress.org forum, but please note that we can not guarantee a response in a timely manner. If you have an issue we would appriciate you using GitHub or purchasing priority support on our site.
+> [Austin](http://austin.passy.co) and the [Frosty Media](https://frosty.media/) team will always try our best to support the Custom Login plugin on the WordPress.org forum, but please note that we can not guarantee a response in a timely manner. If you have an issue we would appriciate you using GitHub or purchasing priority support on our site.
 >
-> Any extensions purchased on [Frosty Media](https://frosty.media/) (not hosted on WordPress.org) will not be supported on the WordPress.org forum. You can always browse our *small* but growing [documentation](https://frosty.media/docs) for further assistance. You need a valid license key to make support submissions *on our site*. We thank you in advance. 
+> Any extensions purchased on [Frosty Media](https://frosty.media/) (not hosted on WordPress.org) will not be supported on the WordPress.org forum. You can always browse our *small* but growing [documentation](https://frosty.media/docs) for further assistance. You need a valid license key to make support submissions *on our site*. We thank you in advance.
 
 > <strong>Bug Reports</strong><br>
-> Bug reports for Custom Login are [welcomed on GitHub](https://github.com/thefrosty/custom-login). 
+> Bug reports for Custom Login are [welcomed on GitHub](https://github.com/thefrosty/custom-login).
 
 = Video =
 
@@ -37,8 +37,8 @@ There are currently 5 premium extensions available, with more coming (suggestion
 * [Stealth Login](https://frosty.media/plugins/custom-login-stealth-login/?utm_source=wordpressorg&utm_medium=custom-login&utm_campaign=readme.txt "Custom Login Stealth Login") - obscure your login URL.
 * [Page Template](https://frosty.media/plugins/custom-login-page-template/?utm_source=wordpressorg&utm_medium=custom-login&utm_campaign=readme.txt "Custom Login Page Template") - add a login form to any WordPress page.
 * [Login Redirects](https://frosty.media/plugins/custom-login-redirects/?utm_source=wordpressorg&utm_medium=custom-login&utm_campaign=readme.txt "Custom Login Redirects") - Manage login redirects.
-* [No Password](https://frosty.media/plugins/custom-login-no-password-login/?utm_source=wordpressorg&utm_medium=custom-login&utm_campaign=readme.txt "Custom Login No Password logins") - allow users to login without a password. 
-* [Style Pack #1](https://frosty.media/plugins/custom-login-style-pack-1?utm_source=wordpressorg&utm_medium=custom-login&utm_campaign=readme.txt "Custom Login Style Pack #1") - four pre-designed login styles. 
+* [No Password](https://frosty.media/plugins/custom-login-no-password-login/?utm_source=wordpressorg&utm_medium=custom-login&utm_campaign=readme.txt "Custom Login No Password logins") - allow users to login without a password.
+* [Style Pack #1](https://frosty.media/plugins/custom-login-style-pack-1?utm_source=wordpressorg&utm_medium=custom-login&utm_campaign=readme.txt "Custom Login Style Pack #1") - four pre-designed login styles.
 
 **Extensions in development/extension ideas**
 
@@ -62,7 +62,7 @@ Activate the plugin and customize your WordPress login screen. It's as easy as m
 = links =
 
 * Premium Plugins: [https://frosty.media/plugins](https://frosty.media/plugins/ "Premium WordPress Plugins by Frosty")
-* Austins Blog: [https:/austin.passy.co/](https://austin.passy.co/ "Austin Passy's blog")
+* Austins Blog: [https:/austin.passy.co/](http://austin.passy.co/ "Austin Passy's blog")
 * Austin on Twitter: @[TheFrosty](https:/twitter.com/TheFrosty "Austin TheFrosty' Passy on Twitter")
 * Frosty Media on Twitter: @[Frosty_Media](https:/twitter.com/Frosty_Media "Frosty Media on Twitter")
 * **Development welcomed on [GitHub](https://github.com/thefrosty/custom-login)**
@@ -114,6 +114,28 @@ Custom Login showcase on the [Flickr group](http://flickr.com/groups/custom-logi
 4. Custom Login Extensions Installer (an active license key is required).
 
 == Changelog ==
+
+= Version 3.2.4 (09/16/15) =
+
+* Fix PHP Fatal error.
+** PHP Fatal error: Call to a member function get_permalink() on a non-object in /includes/admin/dashboard.php:114
+
+= Version 3.2.2 (05/04/15) =
+
+* May the fourth be with you.
+* Cleaned up dashboard JS errors.
+
+= Version 3.2.2 (04/29/15) =
+
+* Update version number.
+* Fix upgrade notice showing when not needed.
+* Add class 'notice' and 'is-dismissible' to notice.
+* Cleanup admin dashboard empty ob_get_clean() notice.
+
+= Version 3.2.1 (04/20/15) =
+
+* Fix: XSS security flaw.
+* Fix: Settings page not showing. (Fixes Issue: [#6](https://github.com/thefrosty/custom-login/pull/6) /ht @[DrewAPicture](https://github.com/DrewAPicture).
 
 = Version 3.2 (02/09/15) =
 
@@ -189,7 +211,7 @@ Custom Login showcase on the [Flickr group](http://flickr.com/groups/custom-logi
 = Version 3.0.2 (01/12/15) =
 
 * Fix: Logo background size width &amp; height settings not transfering over in upgrade process.
-* Fix: Checking "Remove lost password text" removes the text instead of the other way around. [forum](https://wordpress.org/support/topic/lost-your-password-1) 
+* Fix: Checking "Remove lost password text" removes the text instead of the other way around. [forum](https://wordpress.org/support/topic/lost-your-password-1)
 
 = Version 3.0.1 (01/11/15) =
 

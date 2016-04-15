@@ -27,6 +27,7 @@
 		var templateDir = "<?php bloginfo('template_directory') ?>";
 	</script>
   <?php wp_head(); ?>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body <?php body_class(); ?>>
 <div class="wrapper">
@@ -56,15 +57,16 @@
 	        	)
 		      ); ?>
 	        <?php 
-					$user_id = get_current_user_id();
-					$user_info = get_userdata($user_id);
-					$username = $user_info->user_login;
-			  	if ($user_id != 0) { ?>
+				$user_id = get_current_user_id();
+				$user_info = get_userdata($user_id);
+				$username = $user_info->user_login;
+		  	if ($user_id != 0) { ?>
 		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="icon-user"> <span class="caret"></span></span><span class="sr-only">View Profile</span></a>
-		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="#">View Profile</a></li>
-		            <li><a href="<?php echo wp_logout_url(); ?>" title="Logout">Logout</a></li>
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="icon-user"></span> <?php global $user_identity; get_currentuserinfo(); echo $user_identity; ?></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">Profile</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="<?php echo wp_logout_url(); ?> " title="Log out <?php global $user_identity; get_currentuserinfo(); echo $user_identity; ?>">Logout</a></li>
 		          </ul>
 		        </li>
 	        <?php } else { ?>

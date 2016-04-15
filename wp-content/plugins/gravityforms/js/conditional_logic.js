@@ -358,6 +358,9 @@ function gf_reset_to_default(targetId, defaultValue){
 
 		if(element.val() != val) {
 			element.val(val).trigger('change');
+            if (element.is('select') && element.next().hasClass('chosen-container')) {
+                element.trigger('chosen:updated');
+            }
 		}
 		else{
 			element.val(val);

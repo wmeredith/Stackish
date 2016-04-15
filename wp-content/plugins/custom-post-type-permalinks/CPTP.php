@@ -9,26 +9,12 @@
  * @since 0.9.4
  *
  * */
-
-
-define( "CPTP_VERSION", "0.9.6" );
-define( "CPTP_DEFAULT_PERMALINK", "/%postname%/" );
-define( "CPTP_DIR", dirname( __FILE__ ) );
-
-
-require_once CPTP_DIR.'/CPTP/Util.php';
-require_once CPTP_DIR.'/CPTP/Module.php';
-require_once CPTP_DIR.'/CPTP/Module/Setting.php';
-require_once CPTP_DIR.'/CPTP/Module/Rewrite.php';
-require_once CPTP_DIR.'/CPTP/Module/Admin.php';
-require_once CPTP_DIR.'/CPTP/Module/Permalink.php';
-require_once CPTP_DIR.'/CPTP/Module/GetArchives.php';
-require_once CPTP_DIR.'/CPTP/Module/FlushRules.php';
-
-
 class CPTP {
 
-	private static $instance;
+	private static $_instance;
+
+	/** @var  CPTP_Module[] */
+	public $modules;
 
 	private function __construct() {
 		$this->load_modules();
@@ -36,37 +22,41 @@ class CPTP {
 	}
 
 	/**
-	 *
 	 * load_modules
 	 *
 	 * Load CPTP_Modules.
 	 * @since 0.9.5
 	 *
-	 * */
-
+	 */
 	private function load_modules() {
-		new CPTP_Module_Setting();
-		new CPTP_Module_Rewrite();
-		new CPTP_Module_Admin();
-		new CPTP_Module_Permalink();
-		new CPTP_Module_GetArchives();
-		new CPTP_Module_FlushRules();
-		do_action( "CPTP_load_modules" );
+		$this->modules['setting']      = new CPTP_Module_Setting();
+		$this->modules['rewrite']      = new CPTP_Module_Rewrite();
+		$this->modules['admin']        = new CPTP_Module_Admin();
+		$this->modules['option']       = new CPTP_Module_Option();
+		$this->modules['permalink']    = new CPTP_Module_Permalink();
+		$this->modules['get_archives'] = new CPTP_Module_GetArchives();
+		$this->modules['flush_rules']  = new CPTP_Module_FlushRules();
+
+		do_action( 'CPTP_load_modules', $this );
+
+		foreach ( $this->modules as $module ) {
+			$module->register();
+		}
+
+		do_action( 'CPTP_registered_modules', $this );
 
 	}
 
 	/**
-	 *
 	 * init
 	 *
 	 * Fire Module::add_hook
 	 *
 	 * @since 0.9.5
 	 *
-	 * */
-
+	 */
 	private function init() {
-		do_action( "CPTP_init" );
+		do_action( 'CPTP_init' );
 	}
 
 	/**
@@ -75,13 +65,12 @@ class CPTP {
 	 */
 	public static function get_instance() {
 
-		if (!isset(self::$_instance)) {
-			self::$instance = new CPTP;
+		if ( ! isset( self::$_instance ) ) {
+			self::$_instance = new CPTP;
 		}
 
-		return self::$instance;
+		return self::$_instance;
 	}
-
 
 
 }

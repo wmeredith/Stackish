@@ -2,7 +2,7 @@
 //allow redirection, even if my theme starts to send output to the browser
 add_action('init', 'do_output_buffer');
 function do_output_buffer() {
-        ob_start();
+  ob_start();
 }
 
 //
@@ -11,14 +11,14 @@ function do_output_buffer() {
 function stck_scripts_styles() {
 	if (!is_admin()) {  
 		/* You don't have to register/enqueue jQuery IF LISTED AS A DEPENDANT */
-		wp_register_script('stck_js', get_bloginfo('template_url') . '/js/build/production.min.js', array('jquery'), '1.0', true);
+		wp_register_script('stck_js', get_bloginfo('template_url') . '/js/build/production.min.js', array('jquery'), '', true);
 		wp_enqueue_script('stck_js');
 
-		wp_register_style( 'stck_style', get_bloginfo('template_url') . '/style.css', false, '1.0', 'screen' );
+		wp_register_style( 'stck_style', get_bloginfo('template_url') . '/css/style.css', false, '1.0', 'screen' );
 		wp_enqueue_style( 'stck_style' );
 
-    // wp_register_style( 'fontello_style', get_bloginfo('template_url') . '/fonts/fontello/css/fontello.css', false, '1.0', 'screen' );
-    // wp_enqueue_style( 'fontello_style' );
+    wp_register_style( 'fontello_style', get_bloginfo('template_url') . '/fonts/fontello/css/fontello.css', false, '1.0', 'screen' );
+    wp_enqueue_style( 'fontello_style' );
 
     wp_enqueue_script( 'typekit', '//use.typekit.net/fxo1hci.js' );
 	}
@@ -62,7 +62,197 @@ function FontAwesome_icons() {
 }
 add_action('admin_head', 'FontAwesome_icons');
 
+// 
+// TinyMCE Customizations
+// 
+function my_mce_before_init_insert_formats( $init_array ) {  
+  // Define the style_formats array
+  $style_formats = array(
+    array(
+      'title' => "Italic", 
+      'icon' => "italic",
+      'format' => "italic"
+    ),
+    array(
+      'title' => "Underline", 
+      'icon' => "underline",
+      'format' => "underline"
+    ),
+    array(
+      'title' => "Strikethrough", 
+      'icon' => "strikethrough",
+      'format' => "strikethrough"
+    ),
+    array(
+      'title' => "Superscript", 
+      'icon' => "superscript",
+      'format' => "superscript"
+    ),
+    array(
+      'title' => "Subscript", 
+      'icon' => "subscript",
+      'format' => "subscript"
+    ),
+  );  
+  // Insert the array, JSON ENCODED, into 'style_formats'
+  $init_array['style_formats'] = json_encode( $style_formats );  
+  return $init_array;  
+}
+// Attach callback to 'tiny_mce_before_init' 
+add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 
+
 //
+// Weight button
+//
+add_action('wp_head', 'stck_add_weight_button');
+function stck_add_weight_button() {
+    add_filter("mce_external_plugins", "stck_weight_button_plugin");
+    add_filter('mce_buttons', 'stck_register_weight_button');
+}
+
+function stck_weight_button_plugin($plugin_array) {
+    $plugin_array['stck_weight_button'] = get_bloginfo( 'stylesheet_directory' ) . '/stck_tinymce.js';
+    return $plugin_array;
+}
+
+function stck_register_weight_button($buttons) {
+   array_push($buttons, "stck_register_weight_button");
+   return $buttons;
+}
+
+//
+// Size button
+//
+add_action('wp_head', 'stck_add_size_button');
+function stck_add_size_button() {
+    add_filter("mce_external_plugins", "stck_size_button_plugin");
+    add_filter('mce_buttons', 'stck_register_size_button');
+}
+
+function stck_size_button_plugin($plugin_array) {
+    $plugin_array['stck_size_button'] = get_bloginfo( 'stylesheet_directory' ) . '/stck_tinymce.js';
+    return $plugin_array;
+}
+
+function stck_register_size_button($buttons) {
+   array_push($buttons, "stck_register_size_button");
+   return $buttons;
+}
+
+//
+// Variant button
+//
+add_action('wp_head', 'stck_add_variant_button');
+function stck_add_variant_button() {
+    add_filter("mce_external_plugins", "stck_variant_button_plugin");
+    add_filter('mce_buttons', 'stck_register_variant_button');
+}
+
+function stck_variant_button_plugin($plugin_array) {
+    $plugin_array['stck_variant_button'] = get_bloginfo( 'stylesheet_directory' ) . '/stck_tinymce.js';
+    return $plugin_array;
+}
+
+function stck_register_variant_button($buttons) {
+   array_push($buttons, "stck_register_variant_button");
+   return $buttons;
+}
+
+//
+// Kern button
+//
+add_action('wp_head', 'stck_add_kern_button');
+function stck_add_kern_button() {
+    add_filter("mce_external_plugins", "stck_kern_button_plugin");
+    add_filter('mce_buttons', 'stck_register_kern_button');
+}
+
+function stck_kern_button_plugin($plugin_array) {
+    $plugin_array['stck_kern_button'] = get_bloginfo( 'stylesheet_directory' ) . '/stck_tinymce.js';
+    return $plugin_array;
+}
+
+function stck_register_kern_button($buttons) {
+   array_push($buttons, "stck_register_kearn_button");
+   return $buttons;
+}
+
+//
+// Leading button
+//
+add_action('wp_head', 'stck_add_leading_button');
+function stck_add_leading_button() {
+    add_filter("mce_external_plugins", "stck_leading_button_plugin");
+    add_filter('mce_buttons', 'stck_register_leading_button');
+}
+
+function stck_leading_button_plugin($plugin_array) {
+    $plugin_array['stck_leading_button'] = get_bloginfo( 'stylesheet_directory' ) . '/stck_tinymce.js';
+    return $plugin_array;
+}
+
+function stck_register_leading_button($buttons) {
+   array_push($buttons, "stck_register_leading_button");
+   return $buttons;
+}
+
+//
+// Measure button
+//
+add_action('wp_head', 'stck_add_measure_button');
+function stck_add_measure_button() {
+    add_filter("mce_external_plugins", "stck_measure_button_plugin");
+    add_filter('mce_buttons', 'stck_measure_button');
+}
+
+function stck_measure_button_plugin($plugin_array) {
+    $plugin_array['stck_measure_button'] = get_bloginfo( 'stylesheet_directory' ) . '/stck_tinymce.js';
+    return $plugin_array;
+}
+
+function stck_measure_button($buttons) {
+   array_push($buttons, "stck_register_measure_button");
+   return $buttons;
+}
+
+//
+// Body Color Button
+//
+// add_action('wp_head', 'stck_mycolorsplitbutton');
+// function stck_mycolorsplitbutton() {
+//     add_filter("mce_external_plugins", "stck_mycolorsplitbutton_plugin");
+//     add_filter('mce_buttons', 'stck_register_mycolorsplitbutton');
+// }
+
+// function stck_stck_mycolorsplitbutton_plugin($plugin_array) {
+//     $plugin_array['mycolorsplitbutton'] = get_bloginfo( 'stylesheet_directory' ) . '/stck_tinymce.js';
+//     return $plugin_array;
+// }
+
+// function stck_register_mycolorsplitbutton($buttons) {
+//    array_push($buttons, "stck_register_mycolorsplitbutton");
+//    return $buttons;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 
 // Register Stack Custom Post Type
 //
 function stck_stack_post_type() {
@@ -276,7 +466,7 @@ add_action( 'init', 'stck_style_variant_taxonomy', 0 );
 //
 // Custom WP Login/Registration functions
 //
-$stck_login_page  = home_url( '/user/login/' );
+$stck_login_page  = home_url( '/stacker/login/' );
 
 // Redirect default login page requests
 function stck_redirect_login_page() {
@@ -469,7 +659,9 @@ function stck_build_stack() {
       'post_type'     => 'Stack'    // Use a custom post type if you want to
     );
     wp_insert_post($post);
-    // $post_id = wp_insert_post($post); // Grab the newly created post ID for later use
+
+    // Grab the newly created post ID for later use
+    $post_id = wp_insert_post($post); 
 
     // Save temporary stack preview image
     $filteredImageData = substr($_POST['img_val'], strpos($_POST['img_val'], ",")+1); // Get the base-64 string from data
@@ -530,4 +722,27 @@ function stck_build_stack() {
     die;
   }
 };
+
+/**
+ * Modify TinyMCE 
+ *
+ * @param array $in
+ * @return array $in
+ */
+function my_tiny_mce_before_init( $in ) {
+
+    // customize the buttons
+    $in['theme_advanced_buttons1'] = 'bold,italic,underline,bullist,numlist,hr,blockquote,link,unlink,justifyleft,justifycenter,justifyright,justifyfull,outdent,indent';         
+    $in['theme_advanced_buttons2'] = 'formatselect,pastetext,pasteword,charmap,undo,redo';
+
+    // Debug:
+    // print_r( $in );
+    // exit();
+
+    // Keep the "kitchen sink" open:   
+    $in[ 'wordpress_adv_hidden' ] = FALSE;
+
+    return $in;
+}
+add_filter( 'tiny_mce_before_init', 'my_tiny_mce_before_init' );
 ?>

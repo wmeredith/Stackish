@@ -8,12 +8,12 @@ module.exports = function(grunt) {
         dist: {
           src: [
             //lib scripts where order matters
-            'js/lib/rangy-core.js',
-            'js/lib/rangy-cssclassapplier.js',
+            // 'js/lib/rangy/log4javascript.js',
+            // 'js/lib/rangy/core.js',
 
             //lib else
             'js/lib/*.js',
-            
+
             //stackish
             'js/app/*.js'
           ],
@@ -32,7 +32,7 @@ module.exports = function(grunt) {
         dist: {
           options: {
             sassDir: 'sass',
-            cssDir: '',
+            cssDir: 'css',
             imagesDir: 'images',
             javascriptsDir: 'js',
             fontsDir: 'fonts',
@@ -54,7 +54,7 @@ module.exports = function(grunt) {
 
       watch: {
         scripts: {
-          files: ['js/lib/*.js', 'js/app/*.js'],
+          files: ['js/lib/*.js', 'js/lib/*/*.js', 'js/app/*.js'],
           tasks: ['concat', 'uglify'],
           options: {
               spawn: false,
