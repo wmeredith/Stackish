@@ -28,19 +28,6 @@ module.exports = function(grunt) {
         }
       },
 
-      compass: {
-        dist: {
-          options: {
-            sassDir: 'sass',
-            cssDir: 'css',
-            imagesDir: 'images',
-            javascriptsDir: 'js',
-            fontsDir: 'fonts',
-            outputStyle: 'nested'
-          }
-        }
-      },
-
       imagemin: {
         dynamic: {
           files: [{
@@ -67,13 +54,6 @@ module.exports = function(grunt) {
               spawn: false,
           },
         },
-        compass: {
-          files: ['sass/**/*.{scss,sass}'],
-          tasks: ['compass'],
-          options: {
-            spawn: false,
-          }
-        }
       }
 
     });
@@ -81,11 +61,11 @@ module.exports = function(grunt) {
     // Depenencies
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Tasks
-    grunt.registerTask('default', ['concat', 'uglify', 'compass', 'imagemin', 'watch']);
+    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'imagemin', 'watch']);
 
 };

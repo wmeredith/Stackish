@@ -1,0 +1,31 @@
+//
+// Typography
+//
+.heading {
+    letter-spacing: .033em;
+    text-transform: uppercase;;
+    font-variant: small-caps;
+    font-weight: 100;
+}
+
+.page-title {
+    @extend .heading;
+    font-size: $font-size-h4;
+}
+
+.mouseprint {
+    color: $gray-light;
+    font-style: italic;
+}
+
+.icon-lightbulb-1:before {
+    font-size: 1.1em !important; // Override fontello stylesheet without altering core.
+}
+
+.icon-hdd:before {
+    margin-right: .4em !important; // Override fontello stylesheet without altering core.
+}
+
+label {
+    font-weight: normal;
+}

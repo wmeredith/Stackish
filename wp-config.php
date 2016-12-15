@@ -16,7 +16,7 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'local_stackish');
+define('DB_NAME', 'local.stackish.com');
 
 /** MySQL database username */
 define('DB_USER', 'root');

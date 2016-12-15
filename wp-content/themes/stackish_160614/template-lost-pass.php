@@ -16,7 +16,7 @@ get_header(); ?>
       <?php global $user_ID, $user_identity; get_currentuserinfo(); if (!$user_ID) { ?>
         <h3 class="form-title">Password Reset</h3>
 
-        <div class="sign-up-column">          
+        <div class="sign-up-column">
           <form method="post" action="<?php echo site_url('wp-login.php?action=lostpassword', 'login_post') ?>" class="wp-user-form">
             <ul class="form-list">
               <li><p>This needs testing on a live server.</p></li>
@@ -36,7 +36,7 @@ get_header(); ?>
             <p><a href="<?php echo wp_logout_url('index.php'); ?>">Log out</a></p>
           </div>
         <?php } ?>
-      </div>       
+      </div>
     </main>
 
 

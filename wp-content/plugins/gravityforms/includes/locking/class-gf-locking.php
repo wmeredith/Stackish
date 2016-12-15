@@ -85,7 +85,9 @@ abstract class GFLocking {
 	 * @return bool
 	 */
 	protected function get_object_id() {
-		return rgget( 'id' ); // example in the case of form id
+		$id = rgget( 'id' );
+		$id = absint( $id );
+		return $id; // example in the case of form id
 	}
 
 	public function init_edit_lock() {
@@ -110,12 +112,13 @@ abstract class GFLocking {
 	}
 
 	public function register_scripts() {
+		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG || isset( $_GET['gform_debug'] ) ? '' : '.min';
 		$locking_path = GFCommon::get_base_url() . '/includes/locking/';
-		wp_register_script( 'gforms_locking', $locking_path . 'js/locking.js', array( 'jquery', 'heartbeat' ), GFCommon::$version );
-		wp_register_script( 'gforms_locking_view', $locking_path . 'js/locking-view.js', array( 'jquery', 'heartbeat' ), GFCommon::$version );
-		wp_register_script( 'gforms_locking_list', $locking_path . 'js/locking-list.js', array( 'jquery', 'heartbeat' ), GFCommon::$version );
-		wp_register_style( 'gforms_locking_css', $locking_path . 'css/locking.css', array(), GFCommon::$version );
-		wp_register_style( 'gforms_locking_list_css', $locking_path . 'css/locking-list.css', array(), GFCommon::$version );
+		wp_register_script( 'gforms_locking', $locking_path . "js/locking{$min}.js", array( 'jquery', 'heartbeat' ), GFCommon::$version );
+		wp_register_script( 'gforms_locking_view', $locking_path . "js/locking-view{$min}.js", array( 'jquery', 'heartbeat' ), GFCommon::$version );
+		wp_register_script( 'gforms_locking_list', $locking_path . "js/locking-list{$min}.js", array( 'jquery', 'heartbeat' ), GFCommon::$version );
+		wp_register_style( 'gforms_locking_css', $locking_path . "css/locking{$min}.css", array(), GFCommon::$version );
+		wp_register_style( 'gforms_locking_list_css', $locking_path . "css/locking-list{$min}.css", array(), GFCommon::$version );
 
 		// No conflict scripts
 		add_filter( 'gform_noconflict_scripts', array( $this, 'register_noconflict_scripts' ) );
@@ -193,18 +196,18 @@ abstract class GFLocking {
 
 	protected function get_strings() {
 		$strings = array(
-			'currently_locked'  => __( 'This page is currently locked. Click on the "Request Control" button to let %s know you\'d like to take over.', 'gravityforms' ),
-			'accept'            => __( 'Accept', 'gravityforms' ),
-			'cancel'            => __( 'Cancel', 'gravityforms' ),
-			'currently_editing' => __( '%s is currently editing', 'gravityforms' ),
-			'taken_over'        => __( '%s has taken over and is currently editing.', 'gravityforms' ),
-			'lock_requested'    => __( '%s has requested permission to take over control.', 'gravityforms' ),
-			'gained_control'    => __( 'You now have control', 'gravityforms' ),
-			'request_pending'   => __( 'Pending', 'gravityforms' ),
-			'no_response'       => __( 'No response', 'gravityforms' ),
-			'request_again'     => __( 'Request again', 'gravityforms' ),
-			'request_error'     => __( 'Error', 'gravityforms' ),
-			'request_rejected'  => __( 'Your request was rejected', 'gravityforms' ),
+			'currently_locked'  => esc_html__( 'This page is currently locked. Click on the "Request Control" button to let %s know you\'d like to take over.', 'gravityforms' ),
+			'accept'            => esc_html__( 'Accept', 'gravityforms' ),
+			'cancel'            => esc_html__( 'Cancel', 'gravityforms' ),
+			'currently_editing' => esc_html__( '%s is currently editing', 'gravityforms' ),
+			'taken_over'        => esc_html__( '%s has taken over and is currently editing.', 'gravityforms' ),
+			'lock_requested'    => esc_html__( '%s has requested permission to take over control.', 'gravityforms' ),
+			'gained_control'    => esc_html__( 'You now have control', 'gravityforms' ),
+			'request_pending'   => esc_html__( 'Pending', 'gravityforms' ),
+			'no_response'       => esc_html__( 'No response', 'gravityforms' ),
+			'request_again'     => esc_html__( 'Request again', 'gravityforms' ),
+			'request_error'     => esc_html__( 'Error', 'gravityforms' ),
+			'request_rejected'  => esc_html__( 'Your request was rejected', 'gravityforms' ),
 		);
 
 		return $strings;
@@ -322,11 +325,11 @@ abstract class GFLocking {
 	public function maybe_lock_object( $is_edit_page ) {
 		if ( isset( $_GET['get-edit-lock'] ) ) {
 			$this->set_lock( $this->_object_id );
-			wp_redirect( $this->_edit_url );
+			wp_safe_redirect( $this->_edit_url );
 			exit();
 		} else if ( isset( $_GET['release-edit-lock'] ) ) {
 			$this->delete_lock_meta( $this->_object_id );
-			wp_redirect( $this->_redirect_url );
+			wp_safe_redirect( $this->_redirect_url );
 			exit();
 		} else {
 			if ( $is_edit_page && ! $user_id = $this->check_lock( $this->_object_id ) ) {
@@ -481,7 +484,7 @@ abstract class GFLocking {
 
 			$message = '<div class="gform-locked-message">
                             <div class="gform-locked-avatar">' . get_avatar( $user->ID, 64 ) . '</div>
-                            <p class="currently-editing" tabindex="0">' . __( sprintf( $this->get_string( 'currently_locked' ), $user->display_name ) ) . '</p>
+                            <p class="currently-editing" tabindex="0">' . sprintf( $this->get_string( 'currently_locked' ), $user->display_name ) . '</p>
                             <p>
 
                                 <a id="gform-take-over-button" style="display:none" class="button button-primary wp-tab-first" href="' . esc_url( add_query_arg( 'get-edit-lock', '1', $edit_url ) ) . '">' . __( 'Take Over', 'gravityforms' ) . '</a>

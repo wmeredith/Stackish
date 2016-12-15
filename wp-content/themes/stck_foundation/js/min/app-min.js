@@ -1,0 +1,1 @@
+"use strict";jQuery(document).ready(function($){$(document).foundation(),$(window).bind("load",function(){var o=$(".pageFooter"),n=o.position(),t=$(window).height();t-=n.top,t-=o.height(),t>0&&o.css({"margin-top":t+"px"})})});

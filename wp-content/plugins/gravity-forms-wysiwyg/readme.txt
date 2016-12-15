@@ -1,44 +1,42 @@
 === Gravity Forms WYSIWYG ===
-Contributors: bradvin
-Donate link: http://themergency.com/donate/
+Contributors: spivurno,bradvin
+Donate link: http://gravitywiz.com/
 Tags: form,forms,gravity,gravity form,gravity forms,WYSIWYG,content editor
 Requires at least: 3.2
 Tested up to: 3.3.2
-Stable tag: 0.2 beta
+Stable tag: 0.3
 
-Adds a WYSIWYG field to Gravity Forms
+Deprecated. Adds a WYSIWYG field to Gravity Forms.
 
 == Description ==
 
-> This plugin is an add-on for the [Gravity Forms Plugin](http://bit.ly/getgravityforms "visit the Gravity Forms website"). 
-> If you don't yet own a license of the best forms plugin for WordPress, go and [buy one now!](http://bit.ly/getgravityforms "purchase Gravity Forms!")
+> Gravity Forms 2.0 introduced the Rich Text Editor option for Paragraph fields. This plugin is now deprecated and will not be maintained.
 
-The current version of Gravity Forms (v.1.6.4) does not yet support WYSIWYG fields. This plugins hopes to fill this gap until the WYSIWYG editor is supported by the Gravity Forms core.
+> Want more awesome Gravity Forms plugins? Check out [Gravity Perks](http://gravityperks.com/)! It's a package of over 20 Gravity Forms add-ons that help you really put Gravity Forms into orbit.
 
-**features**
+This plugin is deprecated. Please upgrade to [Gravity Forms 2.0](http://bit.ly/gwizgravityforms). 
 
-*   Adds a new WYSIWYG field under standard fields
-*   Adds a "Enable WYSIWYG" checkbox for post body fields
-*   Adds a "Enable WYSIWYG" checkbox for paragraph text fields
-*   Custom field now support WYSIWYG by selecting "paragraph text" field type and checking "Enable WYSIWYG"
-*   Support for adding the media buttons to the WYSIWYG by adding a class name of "media_buttons"
+Follow these steps to begin using Gravity Forms' new Rich Text Editor.
 
-**PLEASE NOTE**
-This plugin uses features that are only available in the most recent versions of WordPress (v3.2) and Gravity Forms (v.1.6.4). It goes without saying that you need to upgrade to the latest versions of both in order for this plugin to work.
+1. Add a Paragraph field.
+2. Navigate to the Advanced tab.
+3. Check the "Use the Rich Text Editor" checkbox.
+
+You're golden!
 
 == Installation ==
 
-1. Upload the plugin folder 'gravity-forms-wysiwyg' to your `/wp-content/plugins/` folder
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Make sure you also have Gravity Forms activated.
+This plugin is deprecated. Please upgrade to [Gravity Forms 2.0](http://bit.ly/gwizgravityforms).
 
 == Screenshots ==
 
-1. The new WYSIWYG field type
-2. The end result in the form preview
-3. the end result from the frontend
+This plugin is deprecated. Please upgrade to [Gravity Forms 2.0](http://bit.ly/gwizgravityforms).
 
 == Changelog ==
+
+= 0.3 =
+
+* Deprecated.
 
 = 0.2 beta =
 * allow default values
@@ -50,9 +48,8 @@ This plugin uses features that are only available in the most recent versions of
 
 == Frequently Asked Questions ==
 
-= Does this plugin rely on anything? =
-Yes, you need to install the [Gravity Forms Plugin](http://bit.ly/getgravityforms "visit the Gravity Forms website") for this plugin to work.
+This plugin is deprecated. Please upgrade to [Gravity Forms 2.0](http://bit.ly/gwizgravityforms).
 
 == Upgrade Notice ==
 
-Please upgrade to the latest version
+This plugin is deprecated. Please upgrade to [Gravity Forms 2.0](http://bit.ly/gwizgravityforms).

@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+$body-font-sans: 'Source Sans Pro', sans-serif;
+
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+$body-font-mono: 'Source Code Pro', monospace;
+
+.heading {
+    text-transform: uppercase;
+    letter-spacing: .5;
+}

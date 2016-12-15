@@ -3,8 +3,8 @@ Contributors:      Toro_Unit,inc2734,ixkaito,keita_kobayashi
 Donate link:       http://www.amazon.co.jp/registry/wishlist/COKSXS25MVQV
 Tags:              permalink,permalinks,custom post type,custom taxonomy,cms
 Requires at least: 4.3
-Tested up to:      4.4
-Stable tag:        1.3.1
+Tested up to:      4.6
+Stable tag:        2.2.0
 License: GPLv2 or Later
 
 Edit the permalink of custom post type.
@@ -19,12 +19,18 @@ And support wp_get_archives( "post_type=foo" ).
 
 [This Plugin published on GitHub.](https://github.com/torounit/custom-post-type-permalinks)
 
-Donation: Please send amazon.co.jp Gift to donate[at]torounit.com.
+Donation: Please send [bitcoin](https://blockchain.info/ja/address/3HwkojX2pd9wc5kPFdXnDXMTNbgBmPRygX) or amazon.co.jp Gift to donate[at]torounit.com.
+
 
 = Translators =
-* French(fr_FR) - [Geoffrey Crofte](http://geoffrey.crofte.fr/)
 * Japanese(ja) - [Toro_Unit](http://www.torounit.com/)
+* French(fr_FR) - [Geoffrey Crofte](http://geoffrey.crofte.fr/)
 * Russian(ru_RU) - [Olart](http://olart.ru), [Natali_Z](https://profiles.wordpress.org/natali_z)
+
+= Also checkout =
+
+* [Simple Post Type Permalinks](https://wordpress.org/plugins/simple-post-type-permalinks/)
+
 
 == Setting on Code ==
 
@@ -60,6 +66,48 @@ That's it. You can access the permalinks setting by going to *Settings -> Permal
 
 
 == Changelog ==
+
+= 2.1.3 =
+
+* Set `no_taxonomy_structure` default true.
+
+= 2.1.2 =
+
+* `rewirte => false` post type support.
+
+= 2.1.0 =
+
+* Create rewrite rule on `registered_post_type` and `registered_taxonomy` action.
+* Not create taxonomy rewrite rule when `rewrite` is `false`.
+
+= 2.0.2 =
+
+* pointer html bug fix.
+
+= 2.0.0 =
+
+* `add_rewrite_rules` on `wp_loaded` priority is changed 10 from 100. [fix issue #53](https://github.com/torounit/custom-post-type-permalinks/issues/53)
+* Replace wp_get_post_terms by get_the_terms. [fix issue #55](https://github.com/torounit/custom-post-type-permalinks/issues/55)
+* Fix bug register_uninstall_hook called twice on each page. [fix issue #56](https://github.com/torounit/custom-post-type-permalinks/issues/56)
+
+= 1.5.4 =
+
+* Fixed removed parent post problem.
+
+
+= 1.5.3 =
+
+* readme fix.
+
+= 1.5.0 =
+
+* Tested for 4.5.
+* Add filter CPTP_set_{$module_name}_module.
+
+
+= 1.4.0 =
+* Fix Translation Problem.
+
 
 = 1.3.1 =
 * bugfix `wp_get_archives`.

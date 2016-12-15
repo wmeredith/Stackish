@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "admin-styles.css",
+	"sources": [
+		"../sass/admin-styles.scss"
+	],
+	"mappings": "AAAA,AAAuC,iBAAtB,CAAC,qBAAqB,AAAA,OAAO,EAAE,AAA0B,0BAAA,AAAA,OAAO,CAAC;EACjF,OAAO,EAAE,OAAQ;EACjB,WAAW,EAAE,wBAAyB;EACtC,SAAS,EAAE,eAAgB,GAC3B",
+	"names": []
+}

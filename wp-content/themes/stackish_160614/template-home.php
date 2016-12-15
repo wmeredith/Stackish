@@ -3,9 +3,9 @@
 Template Name: Home Page
 */
 get_header(); ?>
-  
+
 	<div class="container">
-    <div class="row">       
+    <div class="row">
       <div class="stack-thumb-gallery">
         <?php $loop = new WP_Query( array( 'post_type' => 'stack', 'posts_per_page' => 12 ) ); ?>
         <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
@@ -30,12 +30,12 @@ get_header(); ?>
             </div>
             <!-- <div class="col-md-6 stack-thumb-meta-right ">
               <ul class="list-inline">
-                
+
               </ul>
             </div> -->
           </div>
         </div>
-        
+
         <?php endwhile; wp_reset_query(); ?>
 
       </div>

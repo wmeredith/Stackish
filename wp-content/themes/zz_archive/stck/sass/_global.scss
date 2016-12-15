@@ -1,0 +1,17 @@
+header {
+    margin-left: 1em;
+
+    .bug {
+        width: modular-scale(1);
+    }
+
+    ul {
+        list-style: mone;
+        float: right;
+
+        li {
+            display: inline;
+            margin-left: 1em;
+        }
+    }
+}

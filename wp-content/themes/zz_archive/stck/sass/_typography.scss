@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Rubik');
+
+$font-display: 'Playfair Display', serif;
+$font-body: 'Rubik', sans-serif;
+
+body {
+    font-family: $font-body;
+    color: #333;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $font-display;
+    color: #555;
+}
+
+header {
+    h1 {
+        margin-bottom: 0;
+    }
+    h3 {
+        font-size: 1em;
+        margin-top: 0;
+    }
+}
