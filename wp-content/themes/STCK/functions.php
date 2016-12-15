@@ -256,6 +256,58 @@ add_action('admin_head', 'FontAwesome_icons'); */
 
 
 //
+// Register Typeface Custom Post Type
+//
+function stck_typeface_post_type() {
+
+  $labels = array(
+    'name'                => _x( 'Typefaces', 'Post Type General Name', 'text_domain' ),
+    'singular_name'       => _x( 'Typeface', 'Post Type Singular Name', 'text_domain' ),
+    'menu_name'           => __( 'Typefaces', 'text_domain' ),
+    'parent_item_colon'   => __( 'Parent Typeface:', 'text_domain' ),
+    'all_items'           => __( 'All Typefaces', 'text_domain' ),
+    'view_item'           => __( 'View Typeface', 'text_domain' ),
+    'add_new_item'        => __( 'Add Typeface', 'text_domain' ),
+    'add_new'             => __( 'Add New', 'text_domain' ),
+    'edit_item'           => __( 'Edit Typeface', 'text_domain' ),
+    'update_item'         => __( 'Update Typeface', 'text_domain' ),
+    'search_items'        => __( 'Search Typeface', 'text_domain' ),
+    'not_found'           => __( 'Not found', 'text_domain' ),
+    'not_found_in_trash'  => __( 'Not found in Trash', 'text_domain' ),
+  );
+  $rewrite = array(
+    'slug'                => 'typeface',
+    'with_front'          => true,
+    'pages'               => true,
+    'feeds'               => true,
+  );
+  $args = array(
+    'label'               => __( 'typeface', 'text_domain' ),
+    'description'         => __( 'Typefaces', 'text_domain' ),
+    'labels'              => $labels,
+    'supports'            => array( 'title', 'editor', 'author', 'comments', 'custom-fields', 'thumbnail' ),
+    'taxonomies'          => array( 'post_tag' ),
+    'hierarchical'        => false,
+    'public'              => true,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'show_in_nav_menus'   => true,
+    'show_in_admin_bar'   => true,
+    'menu_position'       => 5,
+    // 'menu_icon'           => "",
+    'can_export'          => true,
+    'has_archive'         => true,
+    'exclude_from_search' => false,
+    'publicly_queryable'  => true,
+    'rewrite'             => $rewrite,
+    'capability_type'     => 'page',
+  );
+  register_post_type( 'typeface', $args );
+}
+// Hook into the 'init' action
+add_action( 'init', 'stck_typeface_post_type', 0 );
+
+//
 // Register Stack Custom Post Type
 //
 function stck_stack_post_type() {
@@ -303,7 +355,6 @@ function stck_stack_post_type() {
     'capability_type'     => 'page',
   );
   register_post_type( 'stack', $args );
-
 }
 // Hook into the 'init' action
 add_action( 'init', 'stck_stack_post_type', 0 );
@@ -338,7 +389,7 @@ function stck_letterform_taxonomy() {
     'show_in_nav_menus'          => false,
     'show_tagcloud'              => false,
   );
-  register_taxonomy( 'letterform', array( 'stack', ' post' ), $args );
+  register_taxonomy( 'letterform', array( 'typeface', ' post' ), $args );
 }
 add_action( 'init', 'stck_letterform_taxonomy', 0 );
 
@@ -372,37 +423,6 @@ function stck_weight_taxonomy() {
   register_taxonomy( 'weight', array( 'stack', ' post' ), $args );
 }
 add_action( 'init', 'stck_weight_taxonomy', 0 );
-
-function stck_width_taxonomy() {
-  $labels = array(
-    'name'                       => _x( 'Widths', 'Taxonomy General Name', 'text_domain' ),
-    'singular_name'              => _x( 'Width', 'Taxonomy Singular Name', 'text_domain' ),
-    'menu_name'                  => __( 'Widths', 'text_domain' ),
-    'all_items'                  => __( 'All Widths', 'text_domain' ),
-    'parent_item'                => __( 'Parent Width', 'text_domain' ),
-    'parent_item_colon'          => __( 'Parent Width:', 'text_domain' ),
-    'new_item_name'              => __( 'New Width Name', 'text_domain' ),
-    'add_new_item'               => __( 'Add New Width', 'text_domain' ),
-    'edit_item'                  => __( 'Edit Width', 'text_domain' ),
-    'update_item'                => __( 'Update Width', 'text_domain' ),
-    'separate_items_with_commas' => __( 'Separate Widths with commas', 'text_domain' ),
-    'search_items'               => __( 'Search Widths', 'text_domain' ),
-    'add_or_remove_items'        => __( 'Add or remove Widths', 'text_domain' ),
-    'choose_from_most_used'      => __( 'Choose from the most used Widths', 'text_domain' ),
-    'not_found'                  => __( 'Not Found', 'text_domain' ),
-  );
-  $args = array(
-    'labels'                     => $labels,
-    'hierarchical'               => true,
-    'public'                     => true,
-    'show_ui'                    => true,
-    'show_admin_column'          => true,
-    'show_in_nav_menus'          => false,
-    'show_tagcloud'              => false,
-  );
-  register_taxonomy( 'width', array( 'stack', ' post' ), $args );
-}
-add_action( 'init', 'stck_width_taxonomy', 0 );
 
 function stck_color_taxonomy() {
   $labels = array(
@@ -493,7 +513,7 @@ function stck_foundry_taxonomy() {
     'show_in_nav_menus'          => false,
     'show_tagcloud'              => false,
   );
-  register_taxonomy( 'foundry', array( 'stack', ' post' ), $args );
+  register_taxonomy( 'foundry', array( 'typeface', ' post' ), $args );
 }
 add_action( 'init', 'stck_foundry_taxonomy', 0 );
 
@@ -524,7 +544,7 @@ function stck_affiliate_taxonomy() {
     'show_in_nav_menus'          => false,
     'show_tagcloud'              => false,
   );
-  register_taxonomy( 'affiliate', array( 'stack', ' post' ), $args );
+  register_taxonomy( 'affiliate', array( 'typeface', ' post' ), $args );
 }
 add_action( 'init', 'stck_affiliate_taxonomy', 0 );
 
