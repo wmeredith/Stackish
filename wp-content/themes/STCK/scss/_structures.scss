@@ -125,13 +125,11 @@ body {
 // SIDEBAR
 //
 .sidebar {
-    // padding-top: $padding-large-vertical*4.5;
-    // padding-left: $grid-gutter-width;
-    // overflow-x: visible;
-    // white-space: nowrap;
 
     ul {
         @extend .list-unstyled;
+        margin-bottom: $padding-large-vertical*2;
+        padding-left: $padding-large-horizontal;
 
         li {
             margin-bottom: $padding-small-vertical;
@@ -139,7 +137,6 @@ body {
 
         ul {
             padding-left: $padding-large-horizontal;
-
         }
     }
 
@@ -178,7 +175,7 @@ body {
 //
 .stack-emphasis {
     // padding: 3px;
-    // border: 1px solid $hr-border;
+    border: 1px solid $hr-border;
     @extend .box-shadow-lg;
 }
 
