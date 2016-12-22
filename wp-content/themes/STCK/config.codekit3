@@ -7,7 +7,7 @@
 		"uuidString": "2A3CDEE6-9F5E-4B87-8E70-69DAB66A3F1E"
 		}
 	],
-"creatorBuild": "25444",
+"creatorBuild": "25479",
 "files": {
 	"\/bower.json": {
 		"ft": 524288,
@@ -11067,16 +11067,16 @@
 		"oAP": "\/partials\/grid-control.php",
 		"oF": 0
 		},
-	"\/partials\/stack-side-statbar.php": {
+	"\/partials\/sidebar-stack-builder.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/partials\/stack-side-statbar.php",
+		"oAP": "\/partials\/sidebar-stack-builder.php",
 		"oF": 0
 		},
-	"\/partials\/stack-side-toolbar.php": {
+	"\/partials\/sidebar-stack-single.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/partials\/stack-side-toolbar.php",
+		"oAP": "\/partials\/sidebar-stack-single.php",
 		"oF": 0
 		},
 	"\/partials\/zz_stack-top-toolbar.php": {
@@ -11724,6 +11724,10 @@
 			"active": 0,
 			"optionString": "{'properties': 'always'}"
 			},
+		"capitalized-comments": {
+			"active": 0,
+			"optionString": "'always', {'ignoreInlineComments': false, 'ignoreConsecutiveComments': false}"
+			},
 		"class-methods-use-this": {
 			"active": 0,
 			"optionString": "{'exceptMethods': []}"
@@ -11887,6 +11891,10 @@
 		"max-statements": {
 			"active": 0,
 			"optionString": "{'max': 10}, {'ignoreTopLevelFunctions': true}"
+			},
+		"max-statements-per-line": {
+			"active": 0,
+			"optionString": "{'max': 1}"
 			},
 		"multiline-ternary": {
 			"active": 0,
@@ -12252,6 +12260,10 @@
 			"active": 0,
 			"optionString": "'except-parens'"
 			},
+		"no-return-await": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-script-url": {
 			"active": 0,
 			"optionString": ""
@@ -12483,6 +12495,10 @@
 		"radix": {
 			"active": 0,
 			"optionString": "'always'"
+			},
+		"require-await": {
+			"active": 0,
+			"optionString": ""
 			},
 		"require-jsdoc": {
 			"active": 0,
@@ -13316,6 +13332,10 @@
 			},
 		"space-colon": {
 			"active": 1,
+			"flagValue": -1
+			},
+		"support-ie8": {
+			"active": 0,
 			"flagValue": -1
 			},
 		"toplevel": {

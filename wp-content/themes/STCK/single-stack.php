@@ -35,7 +35,7 @@ get_header(); ?>
                             </div>
                         </div>
                         <div class="col-md-3 col-lg-4">
-                            <?php get_template_part('partials/stack-side-statbar'); ?>
+                            <?php get_template_part('partials/sidebar-stack-single'); ?>
                         </div>
                     </div>
                 </div>

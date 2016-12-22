@@ -78,7 +78,7 @@ get_header(); ?>
                             </div>
                         </div>
                         <div class="col-md-3 col-lg-4">
-                            <?php get_template_part('partials/stack-side-toolbar'); ?>
+                            <?php get_template_part('partials/sidebar-stack-builder'); ?>
                         </div>
                     </div>
                 </div>

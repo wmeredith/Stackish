@@ -328,14 +328,14 @@ function stck_stack_post_type() {
     'not_found_in_trash'  => __( 'Not found in Trash', 'text_domain' ),
   );
   $rewrite = array(
-    'slug'                => 'font-stacks',
+    'slug'                => 'stacks',
     'with_front'          => true,
     'pages'               => true,
     'feeds'               => true,
   );
   $args = array(
     'label'               => __( 'stack', 'text_domain' ),
-    'description'         => __( 'Font Stacks', 'text_domain' ),
+    'description'         => __( 'Stacks', 'text_domain' ),
     'labels'              => $labels,
     'supports'            => array( 'title', 'editor', 'author', 'comments', 'custom-fields', 'thumbnail' ),
     'taxonomies'          => array( 'post_tag' ),

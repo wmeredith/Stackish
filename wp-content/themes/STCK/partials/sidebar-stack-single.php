@@ -3,36 +3,13 @@
         <div class="col-md-12">
             <ul>
                 <li class="sidebar-section">
-                    <h4>Helvetica</h4>
+                    <h4>Typefaces</h4>
                     <ul>
                         <li>
-                            Installed: <span>Yes</span>
+                            <a href="" title=""><span style="font-family: 'Helvetica', sans-serif">Helvetica</span></a>
                         </li>
                         <li>
-                            Source: <span>Fontspring</span>
-                        </li>
-                        <li>
-                            Weights: <span>400, 900</span>
-                        </li>
-                        <li>
-                            Scale: <span>13px, 18px, 24px</span>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-section">
-                    <h4>Times</h4>
-                    <ul>
-                        <li>
-                            Installed: <span>Yes</span>
-                        </li>
-                        <li>
-                            Source: <span>Fontspring</span>
-                        </li>
-                        <li>
-                            Weights: <span>400, 900</span>
-                        </li>
-                        <li>
-                            Scale: <span>13px, 18px, 24px</span>
+                            <a href="" title=""><span style="font-family: 'Times New Roman', sans-serif">Times New Roman</span></a>
                         </li>
                     </ul>
                 </li>
@@ -40,12 +17,18 @@
                     <h4>Spectrum</h4>
                     <ul>
                         <li>
-                            #HEXCODE
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm" style="background: red;">Red</button>
+                                <button type="button" class="btn btn-default btn-sm" style="background: white;">White</button>
+                            </div>
                         </li>
                         <li>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-sm">Desaturate</button>
-                                <button type="button" class="btn btn-default btn-sm">Black and White</button>
+                                <button type="button" class="btn btn-default btn-sm">Black &amp; White</button>
+                                <!--Might want to use one or either of these-->
+                                <!--http://www.ajaxblender.com/howto-convert-image-to-grayscale-using-javascript.html-->
+                                <!--https://github.com/GianlucaGuarini/jQuery.BlackAndWhite-->
                             </div>
                         </li>
                     </ul>

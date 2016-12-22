@@ -3677,6 +3677,9 @@ button.close {
 .gold-star {
   color: #f5bb03; }
 
+.box-shadow-lg, .stack-emphasis {
+  box-shadow: 0 15px 35px rgba(85, 85, 85, 0.1), 0 5px 15px rgba(85, 85, 85, 0.07); }
+
 .heading, .page-title, .navbar .navbar-nav > li a,
 .navbar .navbar-nav > li a:visited, .stack-grid .stack .stack-grid-title, .site-footer ul.footer-nav li a {
   letter-spacing: .033em;
@@ -3770,13 +3773,6 @@ label {
 
 .sidebar ul ul {
   padding-left: 16px; }
-  .sidebar ul ul li {
-    display: block;
-    font-weight: bold;
-    position: relative; }
-    .sidebar ul ul li span {
-      font-weight: normal;
-      float: right; }
 
 @media (max-width: 768px) {
   .sidebar {
@@ -3795,11 +3791,6 @@ label {
 
 .sidebar.sidebar-stack-builder .pick-a-color-markup .color-preview {
   box-shadow: none; }
-
-.stack-emphasis {
-  border: 1px solid #eeeeee;
-  -webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.05), 0 5px 16px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.05), 0 5px 16px 0 rgba(0, 0, 0, 0.1); }
 
 .stack-grid .stack {
   margin-bottom: 40px;
