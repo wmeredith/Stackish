@@ -276,7 +276,7 @@ function stck_typeface_post_type() {
     'not_found_in_trash'  => __( 'Not found in Trash', 'text_domain' ),
   );
   $rewrite = array(
-    'slug'                => 'typeface',
+    'slug'                => 'typefaces',
     'with_front'          => true,
     'pages'               => true,
     'feeds'               => true,
