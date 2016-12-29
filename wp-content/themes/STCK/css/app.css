@@ -3774,9 +3774,14 @@ label {
 .comment-reply-title {
   font-size: 14px; }
 
+.sidebar .sidebar-heading {
+  font-size: 18px; }
+  .sidebar .sidebar-heading.sidebar-heading-author {
+    font-size: 24px; }
+
 .sidebar ul {
   margin-bottom: 30px;
-  padding-left: 16px; }
+  padding-left: 0; }
   .sidebar ul li {
     margin-bottom: 5px; }
   .sidebar ul ul {
@@ -3785,6 +3790,11 @@ label {
 @media (max-width: 768px) {
   .sidebar {
     padding-left: 32px;
+    padding-top: 20px; } }
+
+@media (max-width: 480px) {
+  .sidebar {
+    padding-left: 0;
     padding-top: 20px; } }
 
 .sidebar.sidebar-stack-builder label {

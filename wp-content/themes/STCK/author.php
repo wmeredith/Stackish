@@ -7,7 +7,10 @@ get_header(); ?>
         <div class="container-fluid">
             <div class="contentwrap">
                 <div class="row">
-                    <div class="col-md-9 col-lg-8">
+                    <div class="col-sm-12 col-md-4 col-lg-3">
+                        <?php get_template_part('partials/sidebar-author'); ?>
+                    </div>
+                    <div class="col-sm-12 col-md-8 col-lg-8 col-lg-offset-1">
                         <div class="row stack-grid">
                             <?php
                                 $x = 1;
@@ -51,9 +54,6 @@ get_header(); ?>
                             ?>
                             <!-- END Remove for Production  -->
                         </div>
-                    </div>
-                    <div class="col-md-3 col-lg-4">
-                        <?php get_template_part('partials/sidebar-author'); ?>
                     </div>
                 </div>
             </div>

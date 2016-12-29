@@ -25,7 +25,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
                             <div class="col-lg-8 col-md-10">
                                 <h1 class="page-title"><?php echo get_the_title(); ?></h1>
                                 <p class="stck-big-meta">
-                                    <?php the_date('F jS, Y'); ?> by <?php the_author_link(); ?>
+                                    <?php the_date('F jS, Y'); ?> by <?php the_author_posts_link(); ?>
                                 </p>
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

@@ -141,12 +141,17 @@ body {
 .sidebar {
     .sidebar-heading {
         @extend .heading;
+        font-size: $font-size-h4;
+
+        &.sidebar-heading-author {
+            font-size: $font-size-h3;
+        }
     }
 
     ul {
         @extend .list-unstyled;
         margin-bottom: $padding-large-vertical*3;
-        padding-left: $padding-large-horizontal;
+        padding-left: 0;
 
         li {
             margin-bottom: $padding-small-vertical;
@@ -159,6 +164,11 @@ body {
 
     @media (max-width: $screen-sm) {
         padding-left: $padding-large-horizontal*2;
+        padding-top: $padding-large-vertical*2;
+    }
+
+    @media (max-width: $screen-xs) {
+        padding-left: 0;
         padding-top: $padding-large-vertical*2;
     }
 

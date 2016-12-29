@@ -22,10 +22,12 @@
 .icon-user:before { content: '\e814'; } /* '' */
 .icon-users:before { content: '\e815'; } /* '' */
 .icon-user-add:before { content: '\e816'; } /* '' */
+.icon-check:before { content: '\e817'; } /* '' */
 .icon-tint:before { content: '\e818'; } /* '' */
 .icon-strike:before { content: '\e819'; } /* '' */
 .icon-underline:before { content: '\e81a'; } /* '' */
 .icon-bold:before { content: '\e81b'; } /* '' */
+.icon-edit:before { content: '\e81c'; } /* '' */
 .icon-attention:before { content: '\e81d'; } /* '' */
 .icon-italic:before { content: '\e81f'; } /* '' */
 .icon-resize-vertical:before { content: '\e822'; } /* '' */
@@ -56,6 +58,7 @@
 .icon-th:before { content: '\e850'; } /* '' */
 .icon-ruler:before { content: '\f044'; } /* '' */
 .icon-link:before { content: '\f07b'; } /* '' */
+.icon-check-empty:before { content: '\f096'; } /* '' */
 .icon-docs:before { content: '\f0c5'; } /* '' */
 .icon-lightbulb-1:before { content: '\f0eb'; } /* '' */
 .icon-dribbble:before { content: '\f17d'; } /* '' */
