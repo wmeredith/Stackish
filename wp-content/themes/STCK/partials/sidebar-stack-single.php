@@ -3,18 +3,19 @@
         <div class="col-md-12">
             <ul>
                 <li>
-                    <h4>Typefaces</h4>
+                    <h5 class="sidebar-heading">Typefaces</h5>
+                    <!--links to typeface single-->
                     <ul>
                         <li>
-                            <a href="#" title="Go to Typeface"><span style="font-family: 'Helvetica', sans-serif"><h4>Helvetica</h4></span></a>
+                            <h4><a href="#" title="Go to Typeface"><span style="font-family: 'Helvetica', sans-serif">Helvetica</span></a></h4>
                         </li>
                         <li>
-                            <a href="#" title="Go to Typeface"><span style="font-family: 'Times New Roman', sans-serif"><h4>Times New Roman</h4></span></a>
+                            <h4><a href="#" title="Go to Typeface"><span style="font-family: 'Times New Roman', sans-serif">Times New Roman</span></a></h4>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <h4>Spectrum</h4>
+                    <h5 class="sidebar-heading">Spectrum</h5>
                     <ul>
                         <li>
 
@@ -23,19 +24,19 @@
                         <!--http://www.ajaxblender.com/howto-convert-image-to-grayscale-using-javascript.html-->
                         <!--https://github.com/GianlucaGuarini/jQuery.BlackAndWhite-->
                         <li>
-                            <a class="btn btn-default btn-sm" href="#" title="">
+                            <button class="btn btn-default btn-sm" href="#" title="">
                                 <span aria-hidden="true" class="icon-tint"></span> Desaturate
-                            </a>
+                            </button>
                         </li>
                         <li>
-                            <a class="btn btn-default btn-sm" href="#" title="">
+                            <button class="btn btn-default btn-sm" href="#" title="">
                                 <span aria-hidden="true" class="icon-adjust"></span> B&amp;W
-                            </a>
+                            </button>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <h4>Tags</h4>
+                    <h5 class="sidebar-heading">Tags</h5>
                     <ul>
                         <li>
                             <p>
@@ -45,78 +46,77 @@
                     </ul>
                 </li>
                 <li>
-                    <h4>Share</h4>
+                    <h5 class="sidebar-heading">Share</h5>
                     <ul>
                         <li>
                             <div class="btn-group">
-                                <a class="btn btn-default btn-sm" href="" title="Send to Facebook">
+                                <button class="btn btn-default btn-sm" href="" title="Send to Facebook">
                                     <span aria-hidden="true" class="icon-facebook"></span>
                                     <span class="sr-only">Facebook</span>
-                                </a>
-                                <a class="btn btn-default btn-sm" href="" title="">
+                                </button>
+                                <button class="btn btn-default btn-sm" href="" title="">
                                     <span aria-hidden="true" class="icon-twitter"></span>
                                     <span class="sr-only">Twitter</span>
-                                </a>
-                                <a class="btn btn-default btn-sm" href="" title="">
+                                </button>
+                                <button class="btn btn-default btn-sm" href="" title="">
                                     <span aria-hidden="true" class="icon-pinterest"></span>
                                     <span class="sr-only">Pinterest</span>
-                                </a>
-                                <a class="btn btn-default btn-sm" href="" title="">
+                                </button>
+                                <button class="btn btn-default btn-sm" href="" title="">
                                     <span aria-hidden="true" class="icon-dribbble"></span>
                                     <span class="sr-only">Dribbble</span>
-                                </a>
-                                <a class="btn btn-default btn-sm" href="" title="">
+                                </button>
+                                <button class="btn btn-default btn-sm" href="" title="">
                                     <span aria-hidden="true" class="icon-mail"></span>
                                     <span class="sr-only">Email</span>
-                                </a>
-                                <a class="btn btn-default btn-sm" href="" title="">
+                                </button>
+                                <button class="btn btn-default btn-sm" href="" title="">
                                     <span aria-hidden="true" class="icon-link"></span>
                                     <span class="sr-only">Link</span>
-                                </a>
+                                </button>
                             </div>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <h4>Deploy</h4>
+                    <h5 class="sidebar-heading">Export</h5>
                     <ul>
                         <li>
-                            <a class="btn btn-default btn-sm" href="#" title="">
+                            <button class="btn btn-default btn-sm" href="#" title="" disabled>
                                 <span aria-hidden="true" class="icon-doc-1"></span> Creative Brief (PDF)
-                            </a>
+                            </button>
                         </li>
                         <li>
-                            <a class="btn btn-default btn-sm" href="#" title="Export as 300x200 PNG">
+                            <button class="btn btn-default btn-sm" href="#" title="Export as 300x200 PNG">
                                 <span aria-hidden="true" class="icon-picture"></span>
                                 300x200.png
-                            </a>
+                            </button>
                         </li>
                         <li>
-                            <a class="btn btn-default btn-sm" href="#" title="Export as 1200x800 PNG"><!-- PRO Feature -->
+                            <button class="btn btn-default btn-sm" href="#" title="Export as 1200x800 PNG" disabled><!-- PRO Feature -->
                                 <span aria-hidden="true" class="icon-picture"></span>
                                 1200x800.png
-                            </a>
+                            </button>
                         </li>
                         <li>
-                            <a class="btn btn-default btn-sm" href="#" title="Export as 1200x800 PNG"><!-- PRO Feature -->
+                            <button class="btn btn-default btn-sm" href="#" title="Export as 1200x800 PNG" disabled><!-- PRO Feature -->
                                 <span aria-hidden="true" class="icon-picture"></span>
                                 2400x1600.png
-                            </a>
+                            </button>
                         </li>
 
                         <li>
-                            <a class="btn btn-default btn-sm" href="#" title="">
+                            <button class="btn btn-default btn-sm" href="#" title="">
                                 <span aria-hidden="true" class="icon-docs"></span> Duplicate
-                            </a>
+                            </button>
                         </li>
                         <li>
-                            <a class="btn btn-default btn-sm" href="#" title="Send to Facebook">
+                            <button class="btn btn-default btn-sm" href="#" title="Send to Facebook">
                                 <span aria-hidden="true" class="icon-code-1"></span> Raw
-                            </a>
+                            </button>
                         </li>
                     </ul>
                 </li>
-
             </ul>
         </div>
     </div>
