@@ -8,11 +8,6 @@
     font-weight: 100;
 }
 
-.page-title {
-    @extend .heading;
-    font-size: $font-size-h4;
-}
-
 .mouseprint {
     color: $gray-light;
     font-style: italic;

@@ -9,6 +9,11 @@
 			bloginfo('name');
 			if(is_front_page() && get_bloginfo('description')) {
 				echo ' | '; bloginfo('description');
+			} elseif(is_author()) {
+				if(isset($_GET['author_name'])) : $stckauth = get_userdatabylogin($author_name);
+			    else : $stckauth = get_userdata(intval($author));
+			    endif;
+				echo ' | ' . $stckauth->nickname . '';
 			} else {
 				echo ' | '; the_title();
 			};
@@ -46,7 +51,7 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/create-stack/" title="Make a new font stack."><span aria-hidden="true" class="icon-plus"></span>Create</a></li>
+						<li><a href="stacks/create/" title="Make a new font stack."><span aria-hidden="true" class="icon-plus"></span>Create</a></li>
 						<li><a href="/stacks/" title="Dig through the font stack archive."><span aria-hidden="true" class="icon-database"></span>Font Stacks</a></li>
 						<!-- <li><a href="#" title=""><span aria-hidden="true" class="icon-font"></span> Fonts</a></li> -->
 						<?php if ( is_user_logged_in() ) { ?>
