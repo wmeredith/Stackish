@@ -9,6 +9,12 @@
 	],
 "creatorBuild": "25479",
 "files": {
+	"\/author.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/author.php",
+		"oF": 0
+		},
 	"\/bower.json": {
 		"ft": 524288,
 		"oA": 1,
@@ -10837,6 +10843,126 @@
 		"oF": 0,
 		"oS": 0
 		},
+	"\/fonts\/fontello\/config.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/fonts\/fontello\/config-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/fonts\/fontello\/css\/animation.css": {
+		"aP": 0,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/css\/animation-min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/fonts\/fontello\/css\/fontello-codes.css": {
+		"aP": 0,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/css\/fontello-codes-min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/fonts\/fontello\/css\/fontello-embedded.css": {
+		"aP": 0,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/css\/fontello-embedded-min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/fonts\/fontello\/css\/fontello-ie7-codes.css": {
+		"aP": 0,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/css\/fontello-ie7-codes-min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/fonts\/fontello\/css\/fontello-ie7.css": {
+		"aP": 0,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/css\/fontello-ie7-min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/fonts\/fontello\/css\/fontello.css": {
+		"aP": 0,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/css\/fontello-min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/fonts\/fontello\/demo.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/demo.html",
+		"oF": 0
+		},
+	"\/fonts\/fontello\/font\/fontello.eot": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/font\/fontello.eot",
+		"oF": 0
+		},
+	"\/fonts\/fontello\/font\/fontello.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/font\/fontello.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/fonts\/fontello\/font\/fontello.ttf": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/font\/fontello.ttf",
+		"oF": 0
+		},
+	"\/fonts\/fontello\/font\/fontello.woff": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/font\/fontello.woff",
+		"oF": 0
+		},
+	"\/fonts\/fontello\/font\/fontello.woff2": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/font\/fontello.woff2",
+		"oF": 0
+		},
+	"\/fonts\/fontello\/LICENSE.txt": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/LICENSE.txt",
+		"oF": 0
+		},
+	"\/fonts\/fontello\/README.txt": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/fonts\/fontello\/README.txt",
+		"oF": 0
+		},
 	"\/footer.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -10947,6 +11073,12 @@
 		"oAP": "\/partials\/grid-control.php",
 		"oF": 0
 		},
+	"\/partials\/sidebar-author.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/partials\/sidebar-author.php",
+		"oF": 0
+		},
 	"\/partials\/sidebar-stack-builder.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -10957,6 +11089,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/partials\/sidebar-stack-single.php",
+		"oF": 0
+		},
+	"\/partials\/stack-comments.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/partials\/stack-comments.php",
 		"oF": 0
 		},
 	"\/partials\/zz_stack-top-toolbar.php": {
