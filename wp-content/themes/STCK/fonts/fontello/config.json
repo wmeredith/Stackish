@@ -401,6 +401,12 @@
       "css": "edit",
       "code": 59420,
       "src": "fontawesome"
+    },
+    {
+      "uid": "aa58e30c7196b1378a6ca78c025cc3b5",
+      "css": "behance",
+      "code": 61876,
+      "src": "fontawesome"
     }
   ]
 }

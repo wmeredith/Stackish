@@ -36,8 +36,8 @@ get_header(); ?>
                         </form>
                     <?php } else { ?>
                         <h3 class="form-title">Password Reset</h3>
-                        <p>Uh, you&rsquo;re already logged in as <strong><?php echo $user_identity; ?></strong></p>
-                        <p><a href="<?php echo wp_logout_url('index.php'); ?>">Log out</a> and come back to reset your password.</p>
+                        <p>You&rsquo;re currently logged in as <strong><?php echo $user_identity; ?></strong></p>
+                        <p><a href="<?php echo wp_logout_url('http://stackish.com/users/lost-pass/'); ?>">Log out</a> to reset your password.</p>
                     <?php } ?>
                 </div>
             </div>

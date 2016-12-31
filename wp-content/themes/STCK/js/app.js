@@ -6,6 +6,18 @@ jQuery(document).ready(function($) {
     // alert("jQuery is Working");
 
     //
+    // Show/hide profile edit form
+    //
+
+    $('#stckProfileEdit').on('click', function() {
+        $('#stckProfileUpdateForm, #stckProfileData, #stckProfileEdit').toggleClass('hide');
+    });
+
+    $('#stckProfileCancel').on('click', function() {
+        $('#stckProfileUpdateForm, #stckProfileData, #stckProfileEdit').toggleClass('hide');
+    });
+
+    //
     // Show font list when the typeface button is clicked.
     //
     $('#stckTypefaceButton').on('click', function() {

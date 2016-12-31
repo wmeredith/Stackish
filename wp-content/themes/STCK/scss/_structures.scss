@@ -144,7 +144,7 @@ body {
         font-size: $font-size-h4;
 
         &.sidebar-heading-author {
-            font-size: $font-size-h3;
+            font-size: $font-size-h2;
         }
     }
 
@@ -424,6 +424,21 @@ body {
         }
     }
 
+}
+
+//
+// PROFILE
+//
+.upload-file-input {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    filter: alpha(opacity=0);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity: 0;
+    background-color: transparent;
+    color: transparent;
 }
 
 //

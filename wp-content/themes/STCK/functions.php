@@ -69,6 +69,16 @@ register_nav_menus(
   )
 );
 
+//
+//
+//
+function stck_author_base() {
+    global $wp_rewrite;
+    $author_slug = 'user'; // change slug name
+    $wp_rewrite->author_base = $author_slug;
+}
+add_action('init', 'stck_author_base');
+
 /* //
 // Wordpress Admin Styles
 //
@@ -551,7 +561,7 @@ add_action( 'init', 'stck_affiliate_taxonomy', 0 );
 //
 // Custom WP Login/Registration functions
 //
-$stck_login_page  = home_url( '/stacker/login/' );
+$stck_login_page  = home_url( '/users/login/' );
 
 // Redirect default login page requests
 function stck_redirect_login_page() {
