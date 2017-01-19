@@ -100,3 +100,6 @@ wp-content/plugins/hello.php
 /readme.html
 /sitemap.xml
 /sitemap.xml.gz
+
+# Node Modules
+node_modules

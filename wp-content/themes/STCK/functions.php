@@ -11,33 +11,33 @@ function do_output_buffer() {
 function stck_scripts_styles() {
 	if (!is_admin()) {
         // App scripts (You don't have to register/enqueue jQuery IF LISTED AS A DEPENDANT)
-		wp_register_script('stck_js', get_bloginfo('template_url') . '/js/app-min.js', array('jquery'), '', true);
+		wp_register_script('stck_js', get_bloginfo('template_url') . '/build/js/bundle.js', array('jquery'), '', true);
 		wp_enqueue_script('stck_js');
 
         // Bootstrap scripts: http://getbootstrap.com/
-        wp_register_script('bootstrap_js', get_bloginfo('template_url') . '/bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js', array('jquery'), '', true);
+        wp_register_script('bootstrap_js', get_bloginfo('template_url') . '/node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js', array('jquery'), '', true);
 		wp_enqueue_script('bootstrap_js');
 
         // List sorting/filtering: http://listjs.com/
-        wp_register_script('listjs_js', get_bloginfo('template_url') . '/bower_components/list.js/dist/list.min.js', array('jquery'), '', true);
+        wp_register_script('listjs_js', get_bloginfo('template_url') . '/node_modules/list.js/dist/list.min.js', array('jquery'), '', true);
 		wp_enqueue_script('listjs_js');
 
         // Color Picker styles and scripts: https://lauren.github.io/pick-a-color/
-        wp_register_script('colorpicker_js', get_bloginfo('template_url') . '/bower_components/pick-a-color/build/1.2.3/js/pick-a-color-1.2.3.min.js', array('jquery','tinycolor_js'), '', true);
+        wp_register_script('colorpicker_js', get_bloginfo('template_url') . '/node_modules/pick-a-color/build/1.2.3/js/pick-a-color-1.2.3.min.js', array('jquery','tinycolor_js'), '', true);
 		wp_enqueue_script('colorpicker_js');
-        wp_register_script('tinycolor_js', get_bloginfo('template_url') . '/bower_components/pick-a-color/build/dependencies/tinycolor-0.9.15.min.js', array('jquery'), '', true);
+        wp_register_script('tinycolor_js', get_bloginfo('template_url') . '/node_modules/pick-a-color/build/dependencies/tinycolor-0.9.15.min.js', array('jquery'), '', true);
 		wp_enqueue_script('tinycolor_js');
-        wp_register_style( 'colorpicker_style', get_bloginfo('template_url') . '/bower_components/pick-a-color/build/1.2.3/css/pick-a-color-1.2.3.min.css', false, '1.0', 'screen' );
+        wp_register_style( 'colorpicker_style', get_bloginfo('template_url') . '/node_modules/pick-a-color/build/1.2.3/css/pick-a-color-1.2.3.min.css', false, '1.0', 'screen' );
 		wp_enqueue_style( 'colorpicker_style' );
 
         // Number formatting library: https://refreshless.com/wnumb/
-        wp_register_script('wnumb_js', get_bloginfo('template_url') . '/bower_components/wnumb/wNumb.js', '', '', true);
+        wp_register_script('wnumb_js', get_bloginfo('template_url') . '/node_modules/wnumb/wNumb.js', '', '', true);
         wp_enqueue_script('wnumb_js');
 
         // Responsive touchable slider UI: https://refreshless.com/nouislider/
-        wp_register_script('mouislider_js', get_bloginfo('template_url') . '/bower_components/nouislider/distribute/nouislider.min.js', array('wnumb_js'), '', true);
+        wp_register_script('mouislider_js', get_bloginfo('template_url') . '/node_modules/nouislider/distribute/nouislider.min.js', array('wnumb_js'), '', true);
         wp_enqueue_script('mouislider_js');
-        wp_register_style( 'nouislider_style', get_bloginfo('template_url') . '/bower_components/nouislider/distribute/nouislider.min.css', false, '1.0', 'screen' );
+        wp_register_style( 'nouislider_style', get_bloginfo('template_url') . '/node_modules/nouislider/distribute/nouislider.min.css', false, '1.0', 'screen' );
         wp_enqueue_style( 'nouislider_style' );
 
         // Icon Font styles: http://fontello.com/
@@ -45,7 +45,7 @@ function stck_scripts_styles() {
         wp_enqueue_style( 'fontello_style' );
 
         // App styles
-		wp_register_style( 'stck_style', get_bloginfo('template_url') . '/css/app.css', false, '1.0', 'screen' );
+		wp_register_style( 'stck_style', get_bloginfo('template_url') . '/build/css/app.css', false, '1.0', 'screen' );
 		wp_enqueue_style( 'stck_style' );
 	}
 }
